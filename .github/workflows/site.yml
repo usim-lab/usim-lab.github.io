@@ -33,6 +33,14 @@ jobs:
           python-version: "3.12"
       - run: pip install beautifulsoup4 lxml pillow
       - run: python3 sync/sync_site.py --workers 8
+      - name: Translate new text (KO ⇄ EN, free Workers AI)
+        # new sentences added on the Google Site get an English/Korean version automatically
+        if: ${{ vars.AI_ENDPOINT != '' }}
+        continue-on-error: true
+        env:
+          I18N_TOKEN: ${{ secrets.I18N_TOKEN }}
+        run: python3 sync/i18n.py --auto "${{ vars.AI_ENDPOINT }}/translate"
+      - run: python3 sync/i18n.py --build
       - name: Commit changes
         id: commit
         run: |

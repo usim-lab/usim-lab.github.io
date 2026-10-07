@@ -4,8 +4,9 @@
    구글 사이트에 없는 "디자인용 문구"만 여기서 관리합니다.
    (연구실 데이터 — 논문·구성원·수상 등 — 는 구글 사이트를 고친 뒤
     sync/sync_site.py 를 실행하면 data/content.js 로 자동 반영됩니다.)
-   홈페이지 우측 하단 ✎ 버튼(비밀번호: neel)으로도 이 값을 편집하고
+   홈페이지 맨 아래 ✎ 버튼(비밀번호: neel)으로도 이 값을 편집하고
    파일로 저장할 수 있습니다.
+   ai.endpoint = 방문자용 AI 서버(deploy/ai-worker, Cloudflare 무료 Qwen).
    ================================================================ */
 window.NEEL_OVERRIDES = {
   "brand": { "name": "NEEL Lab", "full": "Nanomaterials for Energy & Environment Laboratory", "org": "SKKU SAINT" },
@@ -131,8 +132,8 @@ window.NEEL_OVERRIDES = {
       }
   },
   "ai": {
-    "endpoint": "",
-    "model": "claude-opus-5"
+    "endpoint": "https://usim-ai.usim-ai.workers.dev",
+    "model": "claude-opus-5-5"
   },
   "editor_password": "neel"
 };

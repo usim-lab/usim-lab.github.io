@@ -1,0 +1,33 @@
+# NEEL Lab · AI 어시스턴트 서버 (Cloudflare Workers, 무료 플랜)
+# 배포:  cd deploy/ai-worker && npm install && npx wrangler deploy
+name = "usim-ai"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+# Workers AI — 무료 플랜에 하루 10,000 neurons 포함 (API 키 필요 없음)
+[ai]
+binding = "AI"
+
+[vars]
+ALLOWED_ORIGINS = "https://usim-lab.github.io,http://localhost:8765"
+# 답변 모델(정확도 우선) · 웹 검색 판단 모델(빠르고 저렴)
+CF_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ROUTER_MODEL = "@cf/qwen/qwen3-30b-a3b-fp8"
+CLAUDE_MODEL = "claude-opus-5-5"
+LAB_EMAIL = "usim@skku.edu"
+
+# 방문자 IP당 1분에 8번까지 질문
+[[ratelimits]]
+name = "LIMITER"
+namespace_id = "2401"
+
+  [ratelimits.simple]
+  limit = 8
+  period = 60
+
+# 선택 비밀값 (npx wrangler secret put 이름):
+#   ANTHROPIC_API_KEY  — 넣으면 Claude(유료)로 답변, 없으면 무료 Qwen
+#   TAVILY_API_KEY     — 일반 웹 검색 강화 (무료 1,000회/월)
+#   NAVER_CLIENT_ID / NAVER_CLIENT_SECRET — 네이버 뉴스·웹 검색 (무료 25,000회/일)
+#   I18N_TOKEN         — GitHub Actions 자동 번역용 비밀 토큰

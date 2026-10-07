@@ -2,3 +2,5 @@
 __pycache__/
 *.pyc
 sync/last_sync.log
+node_modules/
+.wrangler/

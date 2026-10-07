@@ -1,96 +1,67 @@
-# NEEL Lab 홈페이지 (새 디자인 · 구글 사이트 미러)
+# NEEL Lab 홈페이지 · https://usim-lab.github.io
 
-성균관대 NEEL(Nanomaterials for Energy & Environment Laboratory) 연구실 홈페이지입니다.
-기존 구글 사이트(https://sites.google.com/view/uksim)의 **모든 페이지·글·사진**을 그대로 가져와
-Apple 리퀴드 글래스 디자인으로 보여줍니다. 서버·빌드 도구 없이 `index.html` 하나로 동작합니다.
+성균관대 NEEL(Nanomaterials for Energy & Environment Laboratory, 심욱 교수) 연구실 홈페이지입니다.
+기존 구글 사이트(https://sites.google.com/view/uksim)의 **모든 페이지·글·사진**을 가져와
+Apple 리퀴드 글래스 디자인으로 보여줍니다. 서버·빌드 도구 없이 정적 파일로 동작합니다.
+
+| 무엇 | 어디 |
+|---|---|
+| 홈페이지 | https://usim-lab.github.io (GitHub Pages · 무료) |
+| 저장소 | https://github.com/usim-lab/usim-lab.github.io (조직 `usim-lab`) |
+| AI 서버 | https://usim-ai.usim-ai.workers.dev (Cloudflare Workers · 무료) |
+| 내용 편집 | 구글 사이트 → 6시간마다 자동 반영 |
 
 ```
 NEEL-Website/
-├─ index.html              ← 홈페이지 (더블클릭하면 바로 열림)
-├─ assets/css/neel.css     ← 디자인 시스템
-├─ assets/js/app.js        ← 화면 구성 (라우터 · 각 페이지 · 검색/AI · 편집기)
-├─ assets/img/             ← 구글 사이트 사진 626장 (자동 최적화: 최대 1600px · JPEG) + neel-logo.svg
-├─ data/content.js         ← 구글 사이트에서 읽어온 모든 데이터 (자동 생성 · 손으로 고치지 마세요)
-├─ data/content.json       ← 같은 내용(JSON)     data/images.json ← 사진 매핑(증분 동기화용)
-├─ data/overrides.js       ← 디자인 문구 · 연락처 · AI 프록시 주소 ← 직접 편집 가능
-├─ sync/sync_site.py       ← 구글 사이트 → 이 폴더 동기화 스크립트
-├─ sync.command / sync.bat ← (맥 / 윈도우) 더블클릭 동기화
-├─ deploy/cloudflare-worker.js ← AI 어시스턴트를 모든 방문자에게 여는 프록시(선택)
-└─ .github/workflows/sync.yml  ← GitHub에 올리면 6시간마다 자동 동기화
+├─ index.html · manifest.webmanifest   ← 홈페이지 (휴대폰 "홈 화면에 추가" 시 앱처럼 실행)
+├─ assets/css/neel.css · assets/js/app.js   ← 디자인 · 화면 구성(라우터 · 페이지 · 검색/AI · 편집기)
+├─ assets/img/ · assets/icons/          ← 구글 사이트 사진(자동 최적화) · 앱 아이콘
+├─ data/content.js(.json)               ← 구글 사이트에서 읽어온 데이터 (자동 생성 · 손으로 고치지 마세요)
+├─ data/i18n.json → data/i18n.js        ← KO⇄EN 번역 사전 (sync/i18n.py 가 관리)
+├─ data/overrides.js                    ← 디자인 문구 · 연락처 · 교수 소개(KO) · AI 서버 주소 ← 직접 편집 가능
+├─ sync/sync_site.py · sync/i18n.py     ← 구글 사이트 동기화 · 번역 사전
+├─ sync.command / sync.bat              ← (맥 / 윈도우) 더블클릭 동기화
+├─ deploy/ai-worker/                    ← AI 어시스턴트 서버 (Cloudflare Worker)
+└─ .github/workflows/site.yml           ← 6시간마다: 동기화 → 새 문장 자동 번역 → 배포
 ```
 
----
+## 1. 내용 편집 → 구글 사이트에서 하던 대로
+1. 구글 사이트에서 글·사진을 고치고 **게시(Publish)** 합니다.
+2. 끝. GitHub Actions 가 6시간마다 가져와서 배포합니다. 바로 반영하려면 저장소 **Actions → Sync & Deploy → Run workflow**.
+   - 내 컴퓨터에서 미리 보려면 `sync.command`(맥) / `sync.bat`(윈도우) 더블클릭 → `index.html` 새로고침.
+- 새로 생긴 한국어/영어 문장은 동기화 때 무료 AI 가 자동 번역해 `data/i18n.json` 에 저장합니다.
+  번역을 손보고 싶으면 `data/i18n.json` 에서 해당 문장의 `"t"` 값을 고친 뒤 `python3 sync/i18n.py --build`.
+- 구글 사이트의 사진 주소는 몇 분 만에 만료되는 서명 링크라서, 동기화 때 사진을 `assets/img/` 에 저장해 씁니다.
+  (2026-10 구글이 주소 형식을 `sites.google.com/sitesv-images-rt/…` 로 바꿨고 스크립트가 두 형식을 모두 읽습니다.)
 
-## 1. 보는 방법 · 공유하는 방법
-- `index.html` 을 더블클릭하면 바로 열립니다 (Chrome · Safari · Edge · Firefox, 맥/윈도우 모두).
-- **다른 사람에게 보낼 때는 폴더 전체(또는 `NEEL-Website.zip`)를 보내세요.** 압축을 풀고 `index.html` 을 열면 모든 기능이 그대로 동작합니다(인터넷 없이도 열림 · AI 모드만 인터넷 필요).
-- 주소 뒤의 `#/...` 로 페이지가 바뀝니다. 예) `index.html#/publication`, `#/members`, `#/neelstagram`
-- 우측 상단 `KO / EN` 으로 언어(메뉴·안내문)를 바꿉니다. 첫 방문 시 언어 선택 화면이 나옵니다.
-- 우측 하단 🔍 버튼(또는 ⌘K / Ctrl+K)으로 **검색** 또는 **✨AI 모드**(아래 4장)로 질문합니다.
+## 2. 언어(KO / EN)
+- 상단 `KO / EN` 으로 바꾸면 메뉴·안내문뿐 아니라 **본문(교수 학술활동·경력, 과제, 뉴스, 인스타 캡션, 사사 기관 등)도 번역문**으로 바뀝니다.
+  보던 위치는 그대로 유지됩니다. 주소에 `?lang=en` / `?lang=ko` 를 붙여 공유할 수도 있습니다.
+- 원칙: EN 모드에서는 한글이 보이지 않게, KO 모드에서는 설명·역할·경력이 한국어로. 논문 제목·저자·저널명 같은 학술 기록은 원문 그대로입니다.
+- 교수님 이름은 구글 사이트의 "Dr. Uk Sim"을 화면에서 **"Prof. Uk Sim"** 으로 표시합니다(`app.js` 의 `profName`).
 
-## 2. 내용 편집 → **구글 사이트에서 하던 대로** 편집하고, 동기화 한 번
-> "보이는 건 새 디자인, 편집은 예전 구글 사이트에서" — 이 폴더는 구글 사이트를 **비추는 거울**입니다.
+## 3. 휴대폰
+- 하단 탭바: 홈 · 연구 · **✨AI** · 논문 · 구성원 (나머지 페이지는 상단 ☰).
+- ✨AI → 전체 화면 어시스턴트. **"화면에서 탭해 묻기"** 를 켜면 모든 카드에 ✨ 표시가 붙고, 탭하면 그 항목을 AI 가 설명합니다(PC 에서는 마우스를 올리면 같은 기능).
+- Safari 공유 → "홈 화면에 추가" 하면 앱처럼 전체 화면으로 열립니다.
 
-1. 구글 사이트(https://sites.google.com/view/uksim)에서 평소처럼 글·사진을 추가/수정하고 **게시(Publish)** 합니다.
-2. **`sync.command`** (맥) 또는 **`sync.bat`** (윈도우)를 더블클릭합니다. (터미널: `python3 sync/sync_site.py`)
-   - 15개 페이지를 읽고 새 사진만 내려받아 자동 최적화합니다 (보통 10~30초, 처음엔 3~4분).
-3. `index.html` 을 새로고침하면 반영됩니다. 끝.
+## 4. AI 어시스턴트 (무료)
+- **답변**: Llama 3.3 70B · **웹 검색 판단/검색어**: Qwen3 30B — 둘 다 Cloudflare Workers AI 무료 사용량(하루 10,000 neurons ≈ 질문 60회 안팎)으로 동작합니다. API 키·결제 없음.
+- 연구실 질문은 홈페이지 데이터로만 답하고(없는 정보는 지어내지 않음), 일반 지식 질문은 위키백과(한/영) · 학술 논문(OpenAlex/Crossref) · DuckDuckGo 를 검색해 출처 링크와 함께 답합니다.
+- 하루 무료량을 다 쓰거나 연결이 안 되면 자동으로 **내장 답변**(사이트 데이터 요약)으로 대신합니다.
+- 설정은 `deploy/ai-worker/wrangler.toml` (모델·허용 주소·분당 질문 수), 배포는 `cd deploy/ai-worker && npm install && npx wrangler deploy`.
+- 선택 사항 (`npx wrangler secret put 이름`):
+  - `TAVILY_API_KEY` (월 1,000회 무료) · `NAVER_CLIENT_ID` + `NAVER_CLIENT_SECRET` (하루 25,000회 무료) → 일반 웹/뉴스 검색 강화
+  - `ANTHROPIC_API_KEY` → 넣으면 **Claude**(유료, Claude Console 선불 크레딧)로 자동 전환되고 Claude 가 직접 웹 검색합니다. 빼면 다시 무료 모델.
+- 관리자용 ⚙︎(개인 API 키 시험)는 푸터 ✎ 편집기 비밀번호를 한 번 입력한 브라우저에서만 보입니다.
 
-자동으로 따라오는 것들
-- 논문·특허·발표·수상 **개수**: 페이지 제목과 홈 화면 숫자는 데이터의 최신 번호(예: 논문 #158, 수상 #70)에서 계산되므로 항목이 늘면 저절로 바뀝니다.
-- **#NEELstagram**: 게시물 글에 적힌 날짜(`2024.11.24`, `25.08.15`, `2019. 5. 15` …)를 읽어 **최신순으로 자동 정렬**하고 연도별로 묶습니다. 날짜가 없는 게시물은 바로 위 게시물의 날짜를 이어받고(`~2024.11`처럼 표시), 첫 날짜 앞에 있는 최신 글은 "최근"으로 묶입니다.
-- 구글 사이트에 **새 페이지**를 만들면 메뉴 "더보기"에 자동으로 나타납니다(전용 디자인이 없는 페이지는 원본 문단·사진 구조 그대로 표시).
-
-필요한 것: Python 3(맥 기본 설치), 인터넷. `beautifulsoup4`·`lxml`·`pillow` 가 없으면 처음 실행 때 자동 설치를 시도합니다.
-수동 설치: `python3 -m pip install --user beautifulsoup4 lxml pillow`
-
-| 명령 | 설명 |
-|---|---|
-| `python3 sync/sync_site.py` | 증분 동기화 (기본) |
-| `python3 sync/sync_site.py --full` | 사진을 전부 다시 내려받음 (사진을 교체했는데 반영이 안 될 때) |
-| `python3 sync/sync_site.py --site URL --out 폴더` | 다른 구글 사이트/폴더에 적용 |
-
-왜 사진을 미리 내려받나요? 구글 사이트의 사진 주소(`lh3.googleusercontent.com/sitesv/...`)는 페이지를 열 때마다 새로 발급되는
-**단기 서명 링크**라서 몇 분 뒤 403 오류가 납니다. 그래서 동기화 때 사진을 `assets/img/` 에 저장하고 홈페이지는 그 파일을 씁니다.
-
-## 3. 디자인 문구(슬로건·연락처) 편집
-구글 사이트에 없는 문구 — 첫 화면 슬로건, 철학 문단, 주소, 이메일, AI 프록시 주소 — 는 두 가지 방법으로 바꿉니다.
-- 교수 소개(한국어 문단·직함·소속)와 연구 주제 영문 설명도 여기(`professor`, `research_en`)에 있습니다. 구글 사이트에 영문/한글 원문이 없는 부분만 보완한 것입니다.
-- **홈페이지에서**: 맨 아래 푸터의 `✎` → 비밀번호(`neel`, `data/overrides.js` 에서 변경) → 수정 →
-  **"파일로 저장"**(Chrome/Edge: 폴더 선택 창에서 `NEEL-Website` 폴더를 고르면 `data/overrides.js` 에 바로 저장) 또는 **"다운로드"** 후 덮어쓰기.
-- **파일에서**: `data/overrides.js` 를 메모장/VS Code 로 열어 값만 고칩니다.
-
-## 4. AI 어시스턴트 (Claude) · 마우스 올리면 "AI에게 물어보기"
-- 논문·연구주제·구성원·수상·특허·발표·과제·뉴스 카드에 **마우스를 올리면 ✨ "AI에게 물어보기 — 항목명" 말풍선**이 뜨고, 누르면 바로 그 항목에 대한 답을 보여줍니다.
-- 키가 없어도 **내장 답변 모드**로 동작합니다(항목 요약·통계·최근 논문·구성원·지원 안내 등 사이트 데이터 기반). ⚙︎에서 Claude 를 연결하면 자연어로 자유롭게 답합니다.
-- 주소에 `?ask=질문` 을 붙이면 열자마자 질문합니다. 예) `index.html?ask=표지 논문 몇 편이야`
-
-## 4-1. Claude 연결
-검색 패널의 **✨AI** 모드는 이 홈페이지의 데이터(논문·구성원·수상·특허·연구주제·뉴스)를 근거로 자유로운 질문에 답하고,
-관련 논문의 **DOI / PDF 바로 받기** 링크와 **답변 저장(.md)** 버튼을 함께 보여줍니다. 모델은 Claude Opus 5(`claude-opus-5`, 정책 거절 시 자동 대체 모델 사용).
-
-두 가지 사용 방식
-1. **내 브라우저에서만** — ⚙︎ → Anthropic API 키 입력 → 저장. 키는 이 브라우저의 localStorage 에만 저장되고 파일/서버로 전송되지 않습니다.
-2. **모든 방문자에게 열기(권장)** — `deploy/cloudflare-worker.js` 를 Cloudflare Workers(무료)에 5분 만에 배포하고, 그 주소를 `data/overrides.js` 의 `ai.endpoint` 에 적습니다. 방문자는 키 없이 AI를 쓰고, 키는 워커에만 보관됩니다. (파일 상단의 설치 순서 참고)
-
-## 5. 인터넷에 올리기 · 도메인 연결 → **자세한 순서는 `deploy/GITHUB.md`** (초보자용 15분 가이드)
-정적 파일이라 어디든 올릴 수 있습니다.
-- **GitHub Pages** (무료, 추천): 이 폴더를 저장소에 올리고 Settings → Pages → Branch: main → 주소 `https://<계정>.github.io/<저장소>/`.
-  `.github/workflows/sync.yml` 이 포함되어 있어 **6시간마다 구글 사이트를 자동 동기화**해 반영합니다(Actions 탭에서 즉시 실행도 가능).
-  도메인 연결: Settings → Pages → Custom domain 에 `lab.example.com` 입력 + DNS 에 CNAME(`<계정>.github.io`) 추가.
-- **Netlify / Cloudflare Pages / Vercel**: 폴더를 드래그해 올리면 끝. 커스텀 도메인은 각 서비스의 Domain 설정에서 연결.
-- **학교 서버**: 폴더 통째로 업로드(서버 설정 필요 없음).
+## 5. 디자인 문구 편집
+구글 사이트에 없는 문구(슬로건, 철학 문단, 연락처, 교수 한국어 소개, AI 서버 주소)는 `data/overrides.js` 에서 고치거나,
+홈페이지 맨 아래 `✎` → 비밀번호(`neel`) → 수정 → "파일로 저장/다운로드" 후 저장소에 올립니다.
 
 ## 6. 문제 해결
 - 사진이 안 보임 → `python3 sync/sync_site.py --full`
 - `ModuleNotFoundError: bs4` → `python3 -m pip install --user beautifulsoup4 lxml pillow`
-- AI 모드 "연결 실패" → 키가 올바른지, 인터넷이 되는지 확인. 프록시를 쓰면 워커에 `ANTHROPIC_API_KEY` 시크릿이 설정됐는지 확인.
-- 동기화 후 특정 페이지 레이아웃이 이상함 → 구글 사이트에서 문단 구조가 크게 바뀐 경우입니다. 전용 디자인이 있는 페이지는
-  `sync/sync_site.py` 의 `parse_*` 함수가 해석하며, 실패해도 원본 구조 그대로(`pages`) 보여주므로 내용이 사라지지는 않습니다.
-- 편집기 "파일로 저장"이 안 됨 → Safari/Firefox 는 폴더 쓰기를 지원하지 않습니다. "다운로드" 후 덮어쓰세요.
-
-## 7. 기술 메모
-- 프레임워크·빌드 없음. `index.html` + CSS + JS + `data/content.js` (window.NEEL_DATA). `file://` 로 열어도 동작(fetch/CORS 없음).
-- 라우팅은 해시(`#/slug`), 항목 앵커(`#/publication#pub-158`) 지원. 사진은 `loading="lazy"`.
-- 데이터 구조: `nav`(메뉴 트리), `pages`(모든 페이지의 원본 블록), `professor, research, members, publications, covers, patents, presentations, projects, awards, courses, programs, news, research_news, neelstagram(date·year·recent 포함), stats, image_dims`.
-- AI 호출은 Anthropic Messages API 를 직접(브라우저) 또는 프록시(워커)로 호출하며 스트리밍으로 답을 표시합니다.
+- 구성원 카드에 이상한 이름이 생김 → 구글 사이트의 역할 줄이 이름처럼 보이는 경우입니다. `sync/sync_site.py` 의 `ROLE_WORDS` 에 단어를 추가.
+- AI 가 "내장 답변으로 대신했어요"만 보여줌 → 무료량 소진(다음 날 자동 복구) 또는 서버 확인: 브라우저로 AI 서버 주소를 열어 `{"ok":true}` 확인.
+- 맥에서 `git` 이 Xcode 라이선스 오류를 내면 → `DEVELOPER_DIR=/Library/Developer/CommandLineTools git …` (deploy/github-push.command 에 반영됨)

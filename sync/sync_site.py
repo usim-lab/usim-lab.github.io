@@ -167,6 +167,11 @@ def optimize_image(path):
         return path, 0, 0
 
 
+def is_site_image(url):
+    """구글 사이트 이미지 주소 (예전: lh3.googleusercontent.com/sitesv/…, 2026-10~: sites.google.com/sitesv-images-rt/…)."""
+    return "googleusercontent" in url or "/sitesv-images" in url
+
+
 def normalize_img_url(url):
     """구글 이미지 크기 파라미터 정리 (배너 원본은 1920px로 제한)."""
     url = htmlmod.unescape(url)
@@ -313,7 +318,7 @@ class PageExtractor:
         for el in tile.find_all(attrs={"style": re.compile(r"background-image")}):
             handled_bg.add(id(el))
             m = re.search(r"url\(['\"]?(https://[^)'\"]+)", el.get("style", ""))
-            if m and "googleusercontent" in m.group(1):
+            if m and is_site_image(m.group(1)):
                 blocks.append(self.add_image(m.group(1), tid, bg=True))
         for el in tile.find_all(list(BLOCK_TAGS)):
             # skip nested block inside list items (li handled separately)
@@ -339,7 +344,7 @@ class PageExtractor:
                 continue
             if el.name == "img":
                 src = el.get("src") or el.get("data-src") or ""
-                if "googleusercontent" in src:
+                if is_site_image(src):
                     blocks.append(self.add_image(src, tid, alt=el.get("alt", "")))
                 continue
             if el.name == "iframe":
@@ -804,7 +809,8 @@ def parse_research(lines):
 ROLE_WORDS = re.compile(r"(Professor|Scholar|Course|Student|Staff|Researcher|Fellow|Director|Leader|Position|Intern|"
                         r"\bRA\b|Thesis|Completion|Candidate|M\.S\.|Ph\.?\s?D|B\.S\.|Visiting|Chief|Principal|Managing|"
                         r"Development|advisor|interests|Achievement|Scholarship|Publications|Patents|Main author|Co-author|"
-                        r"First-Author|Co-Author|Preparations|inventions|Current|KENTECH|Sciences|University|Journal|Award)", re.I)
+                        r"First-Author|Co-Author|Preparations|inventions|Current|KENTECH|Sciences|University|Journal|Award|"
+                        r"Grant|Fund|Funding|Program|Programme|Track|Project|Research\s+[A-C]\b|\bNRF\b|\bKIAT\b|\bKETEP\b)", re.I)
 NAME_RE = re.compile(r"^(Dr\.\s+)?[A-Z][A-Za-z'\-\.]*(\s+[A-Z][A-Za-z'\-\.]*){0,4}\s*(\([^)]*\))?\s*(,\s*(M\.S\.|Ph\.D\.|Dr\.|Ph\.D))?\.?$")
 
 
