@@ -1,0 +1,67 @@
+# 구글 사이트(sites.google.com/view/uksim) → https://usim-lab.github.io 자동 동기화 + 배포
+# - 6시간마다: 구글 사이트를 읽어 data/ 와 assets/img/ 를 갱신하고, 바뀐 게 있으면 커밋 후 배포합니다.
+# - main 에 직접 올리면(push): 동기화 없이 바로 배포합니다.
+# - Actions 탭 → "Sync & Deploy" → Run workflow 로 즉시 동기화 + 배포할 수 있습니다.
+name: Sync & Deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install beautifulsoup4 lxml pillow
+      - run: python3 sync/sync_site.py --workers 8
+      - name: Commit changes
+        id: commit
+        run: |
+          git config user.name "neel-sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data assets/img
+          if git diff --cached --quiet; then
+            echo "no changes"; echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "sync: Google Sites $(date -u +'%Y-%m-%d %H:%M UTC')" && git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  deploy:
+    needs: sync
+    if: >-
+      !cancelled() && needs.sync.result != 'failure' &&
+      (github.event_name != 'schedule' || needs.sync.outputs.changed == 'true')
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
