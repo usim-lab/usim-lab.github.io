@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-07T05:23:42",
+  "synced_at": "2026-10-07T12:51:44",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -9847,6 +9847,10 @@
         {
          "t": "p",
          "html": "2026-Present. Editorial Board, Greenverse Science"
+        },
+        {
+         "t": "p",
+         "html": "2026-Present. Editorial Board, International Journal of Chemical Kinetics"
         },
         {
          "t": "p",
@@ -37362,6 +37366,11 @@
       "period": "2026-Present",
       "text": "Editorial Board, Greenverse Science",
       "html": "2026-Present. Editorial Board, Greenverse Science"
+     },
+     {
+      "period": "2026-Present",
+      "text": "Editorial Board, International Journal of Chemical Kinetics",
+      "html": "2026-Present. Editorial Board, International Journal of Chemical Kinetics"
      },
      {
       "period": "2026-Present",
