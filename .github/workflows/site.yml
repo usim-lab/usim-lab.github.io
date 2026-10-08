@@ -80,6 +80,8 @@ jobs:
 
   deploy:
     needs: build
+    # push 때는 sync 가 생략되므로 기본 조건(success)이면 deploy 까지 생략됩니다 → build 결과만 봅니다.
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
