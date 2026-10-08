@@ -30,12 +30,12 @@ concurrency:
 jobs:
   sync:
     if: github.event_name != 'push'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       changed: ${{ steps.commit.outputs.changed }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install beautifulsoup4 lxml pillow
@@ -61,22 +61,36 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-  deploy:
+  # 업로드와 배포를 다른 job 으로 나눕니다. 같은 job 에서 업로드 직후 바로 배포하면
+  # GitHub 가 방금 올린 사진 묶음(artifact)을 아직 못 찾아 실패하는 경우가 있습니다.
+  build:
     needs: sync
     if: >-
       !cancelled() && needs.sync.result != 'failure' &&
       (github.event_name != 'schedule' || needs.sync.outputs.changed == 'true')
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url }}
+    steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - name: Wait before retrying (temporary GitHub error)
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+      - id: retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v5
