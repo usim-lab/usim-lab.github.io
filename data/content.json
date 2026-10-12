@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-11T21:37:44",
+  "synced_at": "2026-10-12T04:55:06",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -9714,6 +9714,10 @@
         {
          "t": "p",
          "html": "2025.11-Present. Review Board, National Research Foundation of Korea (NRF), Rep, of Korea (한국연구재단, 전문위원)"
+        },
+        {
+         "t": "p",
+         "html": "2024.03-Present. Luoyang Normal University, 겸임교수"
         },
         {
          "t": "p",
@@ -37253,6 +37257,11 @@
     "period": "2025.11-Present",
     "text": "Review Board, National Research Foundation of Korea (NRF), Rep, of Korea (한국연구재단, 전문위원)",
     "html": "2025.11-Present. Review Board, National Research Foundation of Korea (NRF), Rep, of Korea (한국연구재단, 전문위원)"
+   },
+   {
+    "period": "2024.03-Present",
+    "text": "Luoyang Normal University, 겸임교수",
+    "html": "2024.03-Present. Luoyang Normal University, 겸임교수"
    },
    {
     "period": "2020.07-Present",
