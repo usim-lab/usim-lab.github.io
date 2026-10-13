@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-13T00:17:13",
+  "synced_at": "2026-10-13T13:46:44",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -3812,15 +3812,19 @@
        "blocks": [
         {
          "t": "p",
-         "html": "<b>[Publications After Joining NEEL] (34 papers)</b>"
+         "html": "<b>[Publications After Joining NEEL] (35 papers)</b>"
         },
         {
          "t": "p",
-         "html": "<b><i>2026</i> (11 papers) ※ SKKU 주저자 1편, 공저자 7편</b>"
+         "html": "<b><i>2026</i> (12 papers) ※ SKKU 주저자 1편(공교신), 공저자 9편</b>"
         },
         {
          "t": "p",
-         "html": "<b>50.  </b>Junho Shim†, Jinuk Choi†, Seonghyeon Park, Hyojung Lim, Minseo Jeon, Gyoung Hwa Jeong, <b><u>Dae Jun Moon</u></b>, Jin Gu Kang*, and Uk Sim*, \"High-Entropy Alloy Electrocatalysts for Key Reduction Reactions, from Site Statistics to Design Rules\", <b><i>Progress in Quantum Electronics, </i></b><i>2026, Accepted </i>(Impact Factor 10.8) #157"
+         "html": "<b>51.  </b>Shivraj Mahadik†, Subramani Surendran†, Hyojung Lim†, Jinuk Choi, Dongin Choi, Yoongu Lim, <u>Dae Joon Moon</u>, Gyoung Hwa Jeong, Dongjin Lee, Hee Jung Park*, Jin Gu Kang*, and Uk Sim*, \"Self-Reconstruction-Induced MoO42- Generation in Ni-MoN@NF for Chloride-Resistant Seawater-to-H2 Conversion\", <b><i>Corrosion Communications, </i></b><i>2026, </i>Accepted<a href=\"https://doi.org/10.1016/j.corcom.2026.09.001\" target=\"_blank\" rel=\"noopener\"> </a>(Impact Factor 10.7) #159"
+        },
+        {
+         "t": "p",
+         "html": "<b>50.  </b>Junho Shim†, Jinuk Choi†, Seonghyeon Park, Hyojung Lim, Minseo Jeon, Gyoung Hwa Jeong, <b><u>Dae Jun Moon</u></b>, Jin Gu Kang*, and Uk Sim*, \"High-Entropy Alloy Electrocatalysts for Key Reduction Reactions, from Site Statistics to Design Rules\", <b><i>Progress in Quantum Electronics, </i></b><i>2026, 110, 100657</i> (Impact Factor 10.8) #157"
         },
         {
          "t": "p",
@@ -3836,7 +3840,7 @@
         },
         {
          "t": "p",
-         "html": "<b>46.</b> Shivraj Mahadik‡, Subramani Surendran‡, Hyojung Lim‡, Jinuk Choi, Dongin Choi, Yoongu Lim, <b><u>Dae Joon Moon</u></b>, Gyoung Hwa Jeong, Dongjin Lee, Hyunjung Park, Seung Jun Lee*, Chang Hyuck Choi*, and Uk Sim*, \"Chloride-repelling NiFeP/amorphous NiFe-LDH as a robust lattice-oxygen-mediated electrocatalyst for alkaline and seawater electrolysis\" <b><i>Desalination, </i></b><i>2026, 120445, (Impact Factor 9.8)</i> #152"
+         "html": "<b>46.</b> Shivraj Mahadik‡, Subramani Surendran‡, Hyojung Lim‡, Jinuk Choi, Dongin Choi, Yoongu Lim, <b><u>Dae Joon Moon</u></b>, Gyoung Hwa Jeong, Dongjin Lee, Hyunjung Park, Seung Jun Lee*, Chang Hyuck Choi*, and Uk Sim*, \"Chloride-repelling NiFeP/amorphous NiFe-LDH as a robust lattice-oxygen-mediated electrocatalyst for alkaline and seawater electrolysis\" <b><i>Desalination, </i></b><i>2026, 637, 120445, (Impact Factor 9.8)</i> #152"
         },
         {
          "t": "p",
@@ -38035,15 +38039,19 @@
       },
       {
        "k": "p",
-       "html": "<b>[Publications After Joining NEEL] (34 papers)</b>"
+       "html": "<b>[Publications After Joining NEEL] (35 papers)</b>"
       },
       {
        "k": "p",
-       "html": "<b><i>2026</i> (11 papers) ※ SKKU 주저자 1편, 공저자 7편</b>"
+       "html": "<b><i>2026</i> (12 papers) ※ SKKU 주저자 1편(공교신), 공저자 9편</b>"
       },
       {
        "k": "p",
-       "html": "<b>50.  </b>Junho Shim†, Jinuk Choi†, Seonghyeon Park, Hyojung Lim, Minseo Jeon, Gyoung Hwa Jeong, <b><u>Dae Jun Moon</u></b>, Jin Gu Kang*, and Uk Sim*, \"High-Entropy Alloy Electrocatalysts for Key Reduction Reactions, from Site Statistics to Design Rules\", <b><i>Progress in Quantum Electronics, </i></b><i>2026, Accepted </i>(Impact Factor 10.8) #157"
+       "html": "<b>51.  </b>Shivraj Mahadik†, Subramani Surendran†, Hyojung Lim†, Jinuk Choi, Dongin Choi, Yoongu Lim, <u>Dae Joon Moon</u>, Gyoung Hwa Jeong, Dongjin Lee, Hee Jung Park*, Jin Gu Kang*, and Uk Sim*, \"Self-Reconstruction-Induced MoO42- Generation in Ni-MoN@NF for Chloride-Resistant Seawater-to-H2 Conversion\", <b><i>Corrosion Communications, </i></b><i>2026, </i>Accepted<a href=\"https://doi.org/10.1016/j.corcom.2026.09.001\" target=\"_blank\" rel=\"noopener\"> </a>(Impact Factor 10.7) #159"
+      },
+      {
+       "k": "p",
+       "html": "<b>50.  </b>Junho Shim†, Jinuk Choi†, Seonghyeon Park, Hyojung Lim, Minseo Jeon, Gyoung Hwa Jeong, <b><u>Dae Jun Moon</u></b>, Jin Gu Kang*, and Uk Sim*, \"High-Entropy Alloy Electrocatalysts for Key Reduction Reactions, from Site Statistics to Design Rules\", <b><i>Progress in Quantum Electronics, </i></b><i>2026, 110, 100657</i> (Impact Factor 10.8) #157"
       },
       {
        "k": "p",
@@ -38059,7 +38067,7 @@
       },
       {
        "k": "p",
-       "html": "<b>46.</b> Shivraj Mahadik‡, Subramani Surendran‡, Hyojung Lim‡, Jinuk Choi, Dongin Choi, Yoongu Lim, <b><u>Dae Joon Moon</u></b>, Gyoung Hwa Jeong, Dongjin Lee, Hyunjung Park, Seung Jun Lee*, Chang Hyuck Choi*, and Uk Sim*, \"Chloride-repelling NiFeP/amorphous NiFe-LDH as a robust lattice-oxygen-mediated electrocatalyst for alkaline and seawater electrolysis\" <b><i>Desalination, </i></b><i>2026, 120445, (Impact Factor 9.8)</i> #152"
+       "html": "<b>46.</b> Shivraj Mahadik‡, Subramani Surendran‡, Hyojung Lim‡, Jinuk Choi, Dongin Choi, Yoongu Lim, <b><u>Dae Joon Moon</u></b>, Gyoung Hwa Jeong, Dongjin Lee, Hyunjung Park, Seung Jun Lee*, Chang Hyuck Choi*, and Uk Sim*, \"Chloride-repelling NiFeP/amorphous NiFe-LDH as a robust lattice-oxygen-mediated electrocatalyst for alkaline and seawater electrolysis\" <b><i>Desalination, </i></b><i>2026, 637, 120445, (Impact Factor 9.8)</i> #152"
       },
       {
        "k": "p",
