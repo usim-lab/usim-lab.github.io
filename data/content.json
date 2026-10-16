@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-15T21:03:09",
+  "synced_at": "2026-10-16T03:38:08",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -21355,11 +21355,80 @@
      "is_title": false
     },
     {
-     "id": "h.261b8acfe85e9175_213",
+     "id": "h.3dc81011fcb6b1e4_39",
      "banner": null,
      "cols": [
       {
-       "id": "h.261b8acfe85e9175_216",
+       "id": "h.3dc81011fcb6b1e4_36",
+       "blocks": [
+        {
+         "t": "img",
+         "key": "program|h.3dc81011fcb6b1e4_36|2",
+         "ref": "assets/img/197f263a636c.jpg",
+         "alt": "",
+         "bg": false,
+         "w": 1251,
+         "h": 378
+        }
+       ]
+      },
+      {
+       "id": "h.3dc81011fcb6b1e4_40",
+       "blocks": [
+        {
+         "t": "p",
+         "html": "<b>2026 Electrosynthesis Workshop – Oct. 13-14</b>"
+        },
+        {
+         "t": "p",
+         "html": "Collaboration Between Japan and Korea Joint Program (<a href=\"https://sites.google.com/view/electrosynthesis-workshop/home?authuser=0\" target=\"_blank\" rel=\"noopener\"><u>Link</u></a>)"
+        }
+       ]
+      }
+     ],
+     "is_title": false
+    },
+    {
+     "id": "h.3dc81011fcb6b1e4_20",
+     "banner": null,
+     "cols": [
+      {
+       "id": "h.3dc81011fcb6b1e4_26",
+       "blocks": [
+        {
+         "t": "img",
+         "key": "program|h.3dc81011fcb6b1e4_26|3",
+         "ref": "assets/img/c241fc76a83c.jpg",
+         "alt": "",
+         "bg": false,
+         "w": 826,
+         "h": 854
+        }
+       ]
+      },
+      {
+       "id": "h.3dc81011fcb6b1e4_27",
+       "blocks": [
+        {
+         "t": "img",
+         "key": "program|h.3dc81011fcb6b1e4_27|4",
+         "ref": "assets/img/0c0eeb52b18a.jpg",
+         "alt": "",
+         "bg": false,
+         "w": 823,
+         "h": 591
+        }
+       ]
+      }
+     ],
+     "is_title": false
+    },
+    {
+     "id": "h.3dc81011fcb6b1e4_0",
+     "banner": null,
+     "cols": [
+      {
+       "id": "h.3dc81011fcb6b1e4_3",
        "blocks": [
         {
          "t": "p",
@@ -21368,11 +21437,11 @@
        ]
       },
       {
-       "id": "h.261b8acfe85e9175_218",
+       "id": "h.3dc81011fcb6b1e4_5",
        "blocks": [
         {
          "t": "img",
-         "key": "program|h.261b8acfe85e9175_218|2",
+         "key": "program|h.3dc81011fcb6b1e4_5|5",
          "ref": "assets/img/378199b4aa49.jpg",
          "alt": "",
          "bg": false,
@@ -21382,11 +21451,11 @@
        ]
       },
       {
-       "id": "h.261b8acfe85e9175_221",
+       "id": "h.3dc81011fcb6b1e4_8",
        "blocks": [
         {
          "t": "img",
-         "key": "program|h.261b8acfe85e9175_221|3",
+         "key": "program|h.3dc81011fcb6b1e4_8|6",
          "ref": "assets/img/f1edbba188bf.jpg",
          "alt": "",
          "bg": false,
@@ -21396,7 +21465,7 @@
        ]
       },
       {
-       "id": "h.261b8acfe85e9175_224",
+       "id": "h.3dc81011fcb6b1e4_11",
        "blocks": [
         {
          "t": "p",
@@ -21420,7 +21489,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "program|h.261b8acfe85e9175_228|4",
+         "key": "program|h.261b8acfe85e9175_228|7",
          "ref": "assets/img/a4649d958c5f.jpg",
          "alt": "",
          "bg": false,
@@ -21434,7 +21503,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "program|h.261b8acfe85e9175_231|5",
+         "key": "program|h.261b8acfe85e9175_231|8",
          "ref": "assets/img/f21466735cf7.jpg",
          "alt": "",
          "bg": false,
@@ -21448,7 +21517,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "program|h.261b8acfe85e9175_234|6",
+         "key": "program|h.261b8acfe85e9175_234|9",
          "ref": "assets/img/b98c8d985cda.jpg",
          "alt": "",
          "bg": false,
@@ -21485,7 +21554,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "program|h.261b8acfe85e9175_242|7",
+         "key": "program|h.261b8acfe85e9175_242|10",
          "ref": "assets/img/9db4294108e9.jpg",
          "alt": "",
          "bg": false,
@@ -21499,7 +21568,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "program|h.261b8acfe85e9175_245|8",
+         "key": "program|h.261b8acfe85e9175_245|11",
          "ref": "assets/img/33020936dccb.jpg",
          "alt": "",
          "bg": false,
@@ -21513,7 +21582,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "program|h.261b8acfe85e9175_248|9",
+         "key": "program|h.261b8acfe85e9175_248|12",
          "ref": "assets/img/3eb1df4dfce0.jpg",
          "alt": "",
          "bg": false,
@@ -53698,6 +53767,17 @@
  ],
  "programs": [
   {
+   "title": "2026 Electrosynthesis Workshop – Oct. 13-14",
+   "lines": [
+    "Collaboration Between Japan and Korea Joint Program (<a href=\"https://sites.google.com/view/electrosynthesis-workshop/home?authuser=0\" target=\"_blank\" rel=\"noopener\"><u>Link</u></a>)"
+   ],
+   "images": [
+    "assets/img/197f263a636c.jpg",
+    "assets/img/c241fc76a83c.jpg",
+    "assets/img/0c0eeb52b18a.jpg"
+   ]
+  },
+  {
    "title": "전남고등학교에서 켄텍&NEEL 방문!",
    "lines": [
     "<b>&lt; 2023 수소-연료전지 Winter Camp&gt;</b>",
@@ -57177,7 +57257,7 @@
   "alumni": 81,
   "neelstagram_posts": 131,
   "research_topics": 10,
-  "images": 793
+  "images": 804
  },
  "image_dims": {
   "assets/img/3b6b72e4a1a8.jpg": [
@@ -59679,6 +59759,18 @@
   "assets/img/51d025bec365.jpg": [
    1280,
    1073
+  ],
+  "assets/img/197f263a636c.jpg": [
+   1251,
+   378
+  ],
+  "assets/img/c241fc76a83c.jpg": [
+   826,
+   854
+  ],
+  "assets/img/0c0eeb52b18a.jpg": [
+   823,
+   591
   ]
  }
 }
