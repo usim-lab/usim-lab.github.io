@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-18T20:15:58",
+  "synced_at": "2026-10-19T03:45:08",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -10272,7 +10272,7 @@
         },
         {
          "t": "p",
-         "html": "<b>※ Acknowledgment</b>"
+         "html": "<b>※ Acknowledgment<br></b>RS-2023-00236572 (<b>단국대</b>),RS-2026-25501632 (<b>NRL</b>) RS-2026-25554569 (<b>글로컬</b>)"
         }
        ]
       }
@@ -43809,7 +43809,9 @@
     "accepted": true,
     "in_press": false,
     "publisher": "Elsevier",
-    "ack": [],
+    "ack": [
+     "RS-2023-00236572 (<b>단국대</b>),RS-2026-25501632 (<b>NRL</b>) RS-2026-25554569 (<b>글로컬</b>)"
+    ],
     "notes": [],
     "news": [],
     "cover": false,
