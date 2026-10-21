@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-20T21:22:03",
+  "synced_at": "2026-10-21T03:45:55",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -26124,7 +26124,7 @@
        "blocks": [
         {
          "t": "p",
-         "html": "70. 2026. <b>Jinuk Choi, Excellence Award (Mayor’s Award), Regional Talent Category</b>"
+         "html": "71. 2026. <b>Jinuk Choi, Excellence Award (Mayor’s Award), Regional Talent Category</b>"
         }
        ]
       }
@@ -26161,7 +26161,7 @@
        "blocks": [
         {
          "t": "p",
-         "html": "69. 2026. <b>Yoongu Lim, KENTECH Outstanding Research Award</b>"
+         "html": "70. 2026. <b>Yoongu Lim, KENTECH Outstanding Research Award</b>"
         }
        ]
       }
@@ -26190,6 +26190,47 @@
      "is_title": false
     },
     {
+     "id": "h.4e2236782ace9848_0",
+     "banner": null,
+     "cols": [
+      {
+       "id": "h.4e2236782ace9848_3",
+       "blocks": [
+        {
+         "t": "p",
+         "html": "69. 2026. <b>Jinuk Choi, Best Poster Award</b>"
+        },
+        {
+         "t": "p",
+         "html": "Jinuk Choi, Hyojung Lim, Gyoung Hwa Jeong, Uk Sim*, \"AlFeCoNiCu High-Entropy Catalysts for Efficient Nitrate Reduction and Oxygen Evolution reactions\", 2026.05.31-06.04, GCIM 2026, Jeju, Rep of Korea"
+        }
+       ]
+      }
+     ],
+     "is_title": false
+    },
+    {
+     "id": "h.4e2236782ace9848_4",
+     "banner": null,
+     "cols": [
+      {
+       "id": "h.4f0c2bcc806c3769_4",
+       "blocks": [
+        {
+         "t": "img",
+         "key": "award|h.4f0c2bcc806c3769_4|4",
+         "ref": "assets/img/f193d551e4fa.jpg",
+         "alt": "",
+         "bg": false,
+         "w": 1131,
+         "h": 1600
+        }
+       ]
+      }
+     ],
+     "is_title": false
+    },
+    {
      "id": "h.1f92ee03ec9d2d4a_0",
      "banner": null,
      "cols": [
@@ -26210,15 +26251,15 @@
      "is_title": false
     },
     {
-     "id": "h.4e2236782ace9848_4",
+     "id": "h.4f0c2bcc806c3769_0",
      "banner": null,
      "cols": [
       {
-       "id": "h.4e2236782ace9848_7",
+       "id": "h.4f0c2bcc806c3769_3",
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.4e2236782ace9848_7|4",
+         "key": "award|h.4f0c2bcc806c3769_3|5",
          "ref": "assets/img/ccb98676e52c.jpg",
          "alt": "",
          "bg": false,
@@ -26231,11 +26272,11 @@
      "is_title": false
     },
     {
-     "id": "h.4e2236782ace9848_0",
+     "id": "h.4f0c2bcc806c3769_7",
      "banner": null,
      "cols": [
       {
-       "id": "h.4e2236782ace9848_3",
+       "id": "h.4f0c2bcc806c3769_10",
        "blocks": [
         {
          "t": "p",
@@ -26259,7 +26300,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.45f20175ee60c01f_12|5",
+         "key": "award|h.45f20175ee60c01f_12|6",
          "ref": "assets/img/fcfd5e47e0ca.jpg",
          "alt": "",
          "bg": false,
@@ -26296,7 +26337,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.2fd4b6321256c802_10|6",
+         "key": "award|h.2fd4b6321256c802_10|7",
          "ref": "assets/img/20dc8b506846.jpg",
          "alt": "",
          "bg": false,
@@ -26333,7 +26374,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.6f9f16eb5341bd74_20|7",
+         "key": "award|h.6f9f16eb5341bd74_20|8",
          "ref": "assets/img/6de4daf7751c.jpg",
          "alt": "",
          "bg": false,
@@ -26347,7 +26388,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.7e5c37616663db85_6|8",
+         "key": "award|h.7e5c37616663db85_6|9",
          "ref": "assets/img/963fdbda34ae.jpg",
          "alt": "",
          "bg": false,
@@ -26384,7 +26425,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.6f9f16eb5341bd74_15|9",
+         "key": "award|h.6f9f16eb5341bd74_15|10",
          "ref": "assets/img/d50f721d9b5c.jpg",
          "alt": "",
          "bg": false,
@@ -26421,7 +26462,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.5a119e2b71950069_12|10",
+         "key": "award|h.5a119e2b71950069_12|11",
          "ref": "assets/img/20cccb2111be.jpg",
          "alt": "",
          "bg": false,
@@ -26458,7 +26499,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.5a119e2b71950069_16|11",
+         "key": "award|h.5a119e2b71950069_16|12",
          "ref": "assets/img/1cd0c994882c.jpg",
          "alt": "",
          "bg": false,
@@ -26495,7 +26536,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.5a119e2b71950069_22|12",
+         "key": "award|h.5a119e2b71950069_22|13",
          "ref": "assets/img/023ffaa4ff54.jpg",
          "alt": "",
          "bg": false,
@@ -26532,7 +26573,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.3fb2a5899f412b41_12|13",
+         "key": "award|h.3fb2a5899f412b41_12|14",
          "ref": "assets/img/ab2a4c712818.jpg",
          "alt": "",
          "bg": false,
@@ -26569,7 +26610,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.3fb2a5899f412b41_8|14",
+         "key": "award|h.3fb2a5899f412b41_8|15",
          "ref": "assets/img/4411d65db982.jpg",
          "alt": "",
          "bg": false,
@@ -26610,7 +26651,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.397d9343d198949a_8|15",
+         "key": "award|h.397d9343d198949a_8|16",
          "ref": "assets/img/af9ba213488b.jpg",
          "alt": "",
          "bg": false,
@@ -26651,7 +26692,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.3912fcfc003956d2_8|16",
+         "key": "award|h.3912fcfc003956d2_8|17",
          "ref": "assets/img/006a6ea9e4ef.jpg",
          "alt": "",
          "bg": false,
@@ -26692,7 +26733,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.632bb6ef66d5b25b_16|17",
+         "key": "award|h.632bb6ef66d5b25b_16|18",
          "ref": "assets/img/12c506353940.jpg",
          "alt": "",
          "bg": false,
@@ -26733,7 +26774,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.45a1581d7b6f2bf5_3|18",
+         "key": "award|h.45a1581d7b6f2bf5_3|19",
          "ref": "assets/img/adedfd2f91ff.jpg",
          "alt": "",
          "bg": false,
@@ -26774,7 +26815,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.45a1581d7b6f2bf5_22|19",
+         "key": "award|h.45a1581d7b6f2bf5_22|20",
          "ref": "assets/img/6c0324a48103.jpg",
          "alt": "",
          "bg": false,
@@ -26835,7 +26876,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.58e2d4a86a9b5699_0|20",
+         "key": "award|h.58e2d4a86a9b5699_0|21",
          "ref": "assets/img/dd9bc903f073.jpg",
          "alt": "",
          "bg": false,
@@ -26876,7 +26917,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.6cdc69ac6572c4b8_4|21",
+         "key": "award|h.6cdc69ac6572c4b8_4|22",
          "ref": "assets/img/ed2cd9a87c60.jpg",
          "alt": "",
          "bg": false,
@@ -26917,7 +26958,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.7ea9f5c499da5aa4_4|22",
+         "key": "award|h.7ea9f5c499da5aa4_4|23",
          "ref": "assets/img/734fc3434877.jpg",
          "alt": "",
          "bg": false,
@@ -26958,7 +26999,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.2295dbde6ad0a575_0|23",
+         "key": "award|h.2295dbde6ad0a575_0|24",
          "ref": "assets/img/28c16da315cf.jpg",
          "alt": "",
          "bg": false,
@@ -26999,7 +27040,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.1f752e10d455856e_4|24",
+         "key": "award|h.1f752e10d455856e_4|25",
          "ref": "assets/img/7fb304287e7c.png",
          "alt": "",
          "bg": false,
@@ -27036,7 +27077,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.540a21446a08fb2c_4|25",
+         "key": "award|h.540a21446a08fb2c_4|26",
          "ref": "assets/img/962cbb080cea.jpg",
          "alt": "",
          "bg": false,
@@ -27089,7 +27130,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.6914c4616eca301a_4|26",
+         "key": "award|h.6914c4616eca301a_4|27",
          "ref": "assets/img/52196c64182a.jpg",
          "alt": "",
          "bg": false,
@@ -27130,7 +27171,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.2d456c445012633e_2|27",
+         "key": "award|h.2d456c445012633e_2|28",
          "ref": "assets/img/0380683c5447.jpg",
          "alt": "",
          "bg": false,
@@ -27191,7 +27232,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.288a9c887454f0c6_4|28",
+         "key": "award|h.288a9c887454f0c6_4|29",
          "ref": "assets/img/4895b286cf6d.png",
          "alt": "",
          "bg": false,
@@ -27228,7 +27269,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.1aba0ccd49af713e_177|29",
+         "key": "award|h.1aba0ccd49af713e_177|30",
          "ref": "assets/img/18dcd25f4cf0.jpg",
          "alt": "",
          "bg": false,
@@ -27269,7 +27310,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.6176e6a570f59991_0|30",
+         "key": "award|h.6176e6a570f59991_0|31",
          "ref": "assets/img/33d176f9ccec.jpg",
          "alt": "",
          "bg": false,
@@ -27306,7 +27347,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.52b8ae37f5de0800_4|31",
+         "key": "award|h.52b8ae37f5de0800_4|32",
          "ref": "assets/img/ee106a696533.jpg",
          "alt": "",
          "bg": false,
@@ -27347,7 +27388,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.2b1fc85fe6c53f7b_0|32",
+         "key": "award|h.2b1fc85fe6c53f7b_0|33",
          "ref": "assets/img/b3814fec7bc7.jpg",
          "alt": "",
          "bg": false,
@@ -27388,7 +27429,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.1aba0ccd49af713e_152|33",
+         "key": "award|h.1aba0ccd49af713e_152|34",
          "ref": "assets/img/d52d86c4fa74.png",
          "alt": "",
          "bg": false,
@@ -27429,7 +27470,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.2685230b7d94ccbd_0|34",
+         "key": "award|h.2685230b7d94ccbd_0|35",
          "ref": "assets/img/bd1946d2c7b8.jpg",
          "alt": "",
          "bg": false,
@@ -27470,7 +27511,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.3e915df8cf3a55d4_0|35",
+         "key": "award|h.3e915df8cf3a55d4_0|36",
          "ref": "assets/img/5cd51a199083.jpg",
          "alt": "",
          "bg": false,
@@ -27511,7 +27552,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.1aba0ccd49af713e_157|36",
+         "key": "award|h.1aba0ccd49af713e_157|37",
          "ref": "assets/img/000b3dfb1bdb.png",
          "alt": "",
          "bg": false,
@@ -27572,7 +27613,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.40808ff88beb12ec_4|37",
+         "key": "award|h.40808ff88beb12ec_4|38",
          "ref": "assets/img/5e7e86ab4de1.png",
          "alt": "",
          "bg": false,
@@ -27613,7 +27654,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.1aba0ccd49af713e_165|38",
+         "key": "award|h.1aba0ccd49af713e_165|39",
          "ref": "assets/img/ef3d9e8150ed.jpg",
          "alt": "",
          "bg": false,
@@ -27654,7 +27695,7 @@
        "blocks": [
         {
          "t": "img",
-         "key": "award|h.707cc8627ff120d5_9|39",
+         "key": "award|h.707cc8627ff120d5_9|40",
          "ref": "assets/img/1a570823eae9.jpg",
          "alt": "",
          "bg": false,
@@ -53035,7 +53076,7 @@
  "awards": {
   "items": [
    {
-    "num": 70,
+    "num": 71,
     "year": "2026",
     "headline": "Jinuk Choi, Excellence Award (Mayor’s Award), Regional Talent Category",
     "headline_html": "<b>Jinuk Choi, Excellence Award (Mayor’s Award), Regional Talent Category</b>",
@@ -53046,7 +53087,7 @@
     "recipient": "Jinuk Choi"
    },
    {
-    "num": 69,
+    "num": 70,
     "year": "2026",
     "headline": "Yoongu Lim, KENTECH Outstanding Research Award",
     "headline_html": "<b>Yoongu Lim, KENTECH Outstanding Research Award</b>",
@@ -53055,6 +53096,19 @@
      "assets/img/baf508c3e9f2.jpg"
     ],
     "recipient": "Yoongu Lim"
+   },
+   {
+    "num": 69,
+    "year": "2026",
+    "headline": "Jinuk Choi, Best Poster Award",
+    "headline_html": "<b>Jinuk Choi, Best Poster Award</b>",
+    "details": [
+     "Jinuk Choi, Hyojung Lim, Gyoung Hwa Jeong, Uk Sim*, \"AlFeCoNiCu High-Entropy Catalysts for Efficient Nitrate Reduction and Oxygen Evolution reactions\", 2026.05.31-06.04, GCIM 2026, Jeju, Rep of Korea"
+    ],
+    "images": [
+     "assets/img/f193d551e4fa.jpg"
+    ],
+    "recipient": "Jinuk Choi"
    },
    {
     "num": 68,
@@ -53812,7 +53866,7 @@
     "recipient": "Uk Sim"
    }
   ],
-  "count": 70
+  "count": 71
  },
  "courses": [
   {
@@ -57367,14 +57421,14 @@
   "patents_registered": 17,
   "patents_applications": 30,
   "presentations": 326,
-  "awards": 70,
+  "awards": 71,
   "covers": 24,
   "projects": 27,
   "members_current": 12,
   "alumni": 81,
   "neelstagram_posts": 131,
   "research_topics": 10,
-  "images": 815
+  "images": 852
  },
  "image_dims": {
   "assets/img/3b6b72e4a1a8.jpg": [
@@ -59912,6 +59966,10 @@
   "assets/img/dcc20115afbf.png": [
    1280,
    1035
+  ],
+  "assets/img/f193d551e4fa.jpg": [
+   1131,
+   1600
   ]
  }
 }
