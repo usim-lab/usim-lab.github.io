@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-25T20:31:33",
+  "synced_at": "2026-10-26T03:46:28",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -9851,6 +9851,10 @@
         {
          "t": "p",
          "html": "<b>학술지 편집위</b>"
+        },
+        {
+         "t": "p",
+         "html": "2026-Present. Editorial Board, Journal of Energy Materials and Devices"
         },
         {
          "t": "p",
@@ -37668,6 +37672,11 @@
    {
     "title": "학술지 편집위",
     "items": [
+     {
+      "period": "2026-Present",
+      "text": "Editorial Board, Journal of Energy Materials and Devices",
+      "html": "2026-Present. Editorial Board, Journal of Energy Materials and Devices"
+     },
      {
       "period": "2026-Present",
       "text": "Editorial Board, Greenverse Science",
