@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-26T22:24:35",
+  "synced_at": "2026-10-27T04:09:18",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -9910,7 +9910,15 @@
         },
         {
          "t": "p",
-         "html": "2026. Program Organizer, AMF-AMEC 2027, Electrocatalytic Materials for Carbon Neutrality"
+         "html": "2027. Program Organizer, ICONN-ICAM 2027,  Advanced Materials for Environment &amp; Sustainability (국제학회 조직위 프로그램 오거나이져)"
+        },
+        {
+         "t": "p",
+         "html": "2026. Program Organizer, ADHOC 2027 (국제학회 조직위 프로그램 오거나이져)"
+        },
+        {
+         "t": "p",
+         "html": "2026. Program Organizer, AMF-AMEC 2027, Electrocatalytic Materials for Carbon Neutrality (국제학회 조직위 프로그램 오거나이져)"
         },
         {
          "t": "p",
@@ -37743,9 +37751,19 @@
     "title": "학회 조직위",
     "items": [
      {
+      "period": "2027",
+      "text": "Program Organizer, ICONN-ICAM 2027,  Advanced Materials for Environment & Sustainability (국제학회 조직위 프로그램 오거나이져)",
+      "html": "2027. Program Organizer, ICONN-ICAM 2027,  Advanced Materials for Environment &amp; Sustainability (국제학회 조직위 프로그램 오거나이져)"
+     },
+     {
       "period": "2026",
-      "text": "Program Organizer, AMF-AMEC 2027, Electrocatalytic Materials for Carbon Neutrality",
-      "html": "2026. Program Organizer, AMF-AMEC 2027, Electrocatalytic Materials for Carbon Neutrality"
+      "text": "Program Organizer, ADHOC 2027 (국제학회 조직위 프로그램 오거나이져)",
+      "html": "2026. Program Organizer, ADHOC 2027 (국제학회 조직위 프로그램 오거나이져)"
+     },
+     {
+      "period": "2026",
+      "text": "Program Organizer, AMF-AMEC 2027, Electrocatalytic Materials for Carbon Neutrality (국제학회 조직위 프로그램 오거나이져)",
+      "html": "2026. Program Organizer, AMF-AMEC 2027, Electrocatalytic Materials for Carbon Neutrality (국제학회 조직위 프로그램 오거나이져)"
      },
      {
       "period": "2026",
