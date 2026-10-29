@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-28T22:19:26",
+  "synced_at": "2026-10-29T04:51:34",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -122,7 +122,7 @@
         {
          "t": "h",
          "level": 1,
-         "html": "Nanomaterials for Energy and Environment Laboratory (NEEL)"
+         "html": "<a href=\"https://usim-lab.github.io/#/\" target=\"_blank\" rel=\"noopener\"><u>Nanomaterials for Energy and Environment Laboratory (NEEL)</u></a>"
         }
        ]
       }
@@ -130,11 +130,36 @@
      "is_title": true
     },
     {
-     "id": "h.6fe06b51eef349be_46",
+     "id": "h.7aae550f158f14a1_7",
      "banner": null,
      "cols": [
       {
-       "id": "h.6fe06b51eef349be_43",
+       "id": "h.58f41b2acb40b015_0",
+       "blocks": [
+        {
+         "t": "p",
+         "html": "<a href=\"https://usim-lab.github.io/#/\" target=\"_blank\" rel=\"noopener\"><b><u>&lt;Renewal Hompage&gt;</u></b></a>"
+        }
+       ]
+      },
+      {
+       "id": "h.7aae550f158f14a1_4",
+       "blocks": [
+        {
+         "t": "embed",
+         "src": "https://www.gstatic.com/atari/embeds/9581c1cb067d2cf0b0db63dc0d8422ac/intermediate-frame-minified.html"
+        }
+       ]
+      }
+     ],
+     "is_title": false
+    },
+    {
+     "id": "h.7aae550f158f14a1_0",
+     "banner": null,
+     "cols": [
+      {
+       "id": "h.7aae550f158f14a1_3",
        "blocks": [
         {
          "t": "p",
@@ -9782,7 +9807,7 @@
         },
         {
          "t": "p",
-         "html": "2025-Present. 대한금속재료학회 평의원"
+         "html": "2025-Present. 대한금속재료학회 평의원, 에너지재료 분과위원, 반도체 분과위원"
         },
         {
          "t": "p",
@@ -37484,6 +37509,7 @@
    "<b>안녕하세요. 저희 에너지환경나노재료연구실(NEEL)에서 함께 연구하고자 하시는 연구원 및 석박사과정 학생 지원자분들은 </b><a href=\"mailto:usim@skku.edu\" target=\"_blank\" rel=\"noopener\"><b><u>usim@skku.edu</u></b></a><b> 로 연락주시길 바랍니다.</b>"
   ],
   "intro": [
+   "<a href=\"https://usim-lab.github.io/#/\" target=\"_blank\" rel=\"noopener\"><b><u>&lt;Renewal Hompage&gt;</u></b></a>",
    "<b>Our laboratory focuses mainly on the development of nanomaterials for energy production, conversion, and storage, as well as on renewable energy produced by (photo)electrochemical reactions to create a future sustainable energy system. In order to understand the exact underlying mechanisms of these reactions and to enhance conversion efficiency, we perform in-depth analyses at the surface of the electrode or catalyst and at the interface between electrode and electrolyte.</b>"
   ],
   "images": [
@@ -37592,8 +37618,8 @@
     "items": [
      {
       "period": "2025-Present",
-      "text": "대한금속재료학회 평의원",
-      "html": "2025-Present. 대한금속재료학회 평의원"
+      "text": "대한금속재료학회 평의원, 에너지재료 분과위원, 반도체 분과위원",
+      "html": "2025-Present. 대한금속재료학회 평의원, 에너지재료 분과위원, 반도체 분과위원"
      },
      {
       "period": "2025-Present",
