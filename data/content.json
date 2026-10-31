@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-10-31T21:09:50",
+  "synced_at": "2026-10-31T21:48:47",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -111,7 +111,7 @@
      "banner": {
       "t": "img",
       "key": "home|h.762b2f7deffa89cc_21|1",
-      "ref": "assets/img/3b6b72e4a1a8.jpg",
+      "ref": "assets/img/21e79923bd55.jpg",
       "alt": "",
       "bg": true
      },
@@ -16685,7 +16685,7 @@
         {
          "t": "img",
          "key": "publication|h.59080d6e49faff21_7|108",
-         "ref": "assets/img/e60c3221d132.jpg",
+         "ref": "assets/img/74e4e8446f5f.jpg",
          "alt": "",
          "bg": false,
          "w": 1280,
@@ -17030,7 +17030,7 @@
         {
          "t": "img",
          "key": "publication|h.55525972689acf90_0|115",
-         "ref": "assets/img/a07cbbe5b3b4.jpg",
+         "ref": "assets/img/49dcbc4d81ec.jpg",
          "alt": "",
          "bg": false,
          "w": 1219,
@@ -24789,7 +24789,7 @@
      "banner": {
       "t": "img",
       "key": "presentation|h.5d50c6a4abdd58cd_341|1",
-      "ref": "assets/img/a05747f3724a.jpg",
+      "ref": "assets/img/d4348ed169cc.jpg",
       "alt": "",
       "bg": true
      },
@@ -28719,7 +28719,7 @@
         {
          "t": "img",
          "key": "neelstagram|h.68007be8dabc6cbf_32|17",
-         "ref": "assets/img/925bb9300ded.jpg",
+         "ref": "assets/img/e666b216318c.jpg",
          "alt": "",
          "bg": false,
          "w": 1280,
@@ -31738,7 +31738,7 @@
         {
          "t": "img",
          "key": "neelstagram|h.61f8fb023cc12e2d_8|144",
-         "ref": "assets/img/8c48c8f796ce.jpg",
+         "ref": "assets/img/6777ea5b39fe.jpg",
          "alt": "",
          "bg": false,
          "w": 1280,
@@ -32432,7 +32432,7 @@
         {
          "t": "img",
          "key": "neelstagram|h.5d50c6a4abdd58cd_452|173",
-         "ref": "assets/img/381e1f1b966c.jpg",
+         "ref": "assets/img/1fc8362978df.jpg",
          "alt": "",
          "bg": false,
          "w": 1280,
@@ -33671,7 +33671,7 @@
         {
          "t": "img",
          "key": "neelstagram|h.5d50c6a4abdd58cd_746|225",
-         "ref": "assets/img/3bc64eb1f71c.jpg",
+         "ref": "assets/img/76fd6a94df3b.jpg",
          "alt": "",
          "bg": false,
          "w": 1280,
@@ -34042,7 +34042,7 @@
         {
          "t": "img",
          "key": "neelstagram|h.5d50c6a4abdd58cd_826|240",
-         "ref": "assets/img/19eb78f3e809.jpg",
+         "ref": "assets/img/5091fcd531ee.jpg",
          "alt": "",
          "bg": false,
          "w": 1280,
@@ -34434,7 +34434,7 @@
         {
          "t": "img",
          "key": "neelstagram|h.5d50c6a4abdd58cd_922|260",
-         "ref": "assets/img/3158361fbeba.jpg",
+         "ref": "assets/img/4eb6d847fd04.jpg",
          "alt": "",
          "bg": false,
          "w": 1280,
@@ -34602,7 +34602,7 @@
         {
          "t": "img",
          "key": "neelstagram|h.5d50c6a4abdd58cd_975|269",
-         "ref": "assets/img/56f7cf0f2e3f.jpg",
+         "ref": "assets/img/ba7c95adbfe4.jpg",
          "alt": "",
          "bg": false,
          "w": 1200,
@@ -35081,7 +35081,7 @@
         {
          "t": "img",
          "key": "neelstagram|h.5d50c6a4abdd58cd_1085|295",
-         "ref": "assets/img/ef44c2ca1719.jpg",
+         "ref": "assets/img/df8851b37a55.jpg",
          "alt": "",
          "bg": false,
          "w": 1280,
@@ -37502,7 +37502,7 @@
   "en_headings": []
  },
  "home": {
-  "banner": "assets/img/3b6b72e4a1a8.jpg",
+  "banner": "assets/img/21e79923bd55.jpg",
   "title": "Nanomaterials for Energy and Environment Laboratory (NEEL)",
   "notice": [
    "<b>&lt;연구원 및 석박사 대학원생 모집공고&gt;</b>",
@@ -47346,7 +47346,7 @@
     "num": 57,
     "images": [
      "assets/img/6ae93978749d.jpg",
-     "assets/img/e60c3221d132.jpg"
+     "assets/img/74e4e8446f5f.jpg"
     ],
     "group": 2022,
     "authors": "Yelyn Sim‡, Subramani Surendran‡, Hamchorom Cha‡, Hyeonuk Choi, Minyeong Je, Seungryul Yoo, Dong Chan Seok, Yong Ho Jung, Cheolho Jeon, Dong Jin Kim, Mi-Kyung Han, Heechae Choi*, Uk Sim*, Joonhee Moon*,",
@@ -47536,7 +47536,7 @@
     "num": 52,
     "images": [
      "assets/img/a83083774713.jpg",
-     "assets/img/a07cbbe5b3b4.jpg"
+     "assets/img/49dcbc4d81ec.jpg"
     ],
     "group": 2021,
     "authors": "Gnanaprakasam Janani‡, Subramani Surendran‡, Hyeonuk Choi, Mi-Kyung Han, Uk Sim*,",
@@ -55400,7 +55400,7 @@
   {
    "images": [
     "assets/img/0bed64c48379.jpg",
-    "assets/img/925bb9300ded.jpg",
+    "assets/img/e666b216318c.jpg",
     "assets/img/5f2269d668ee.jpg"
    ],
    "slides": [],
@@ -56352,7 +56352,7 @@
   {
    "images": [
     "assets/img/f678b9d6cd47.jpg",
-    "assets/img/8c48c8f796ce.jpg"
+    "assets/img/6777ea5b39fe.jpg"
    ],
    "slides": [],
    "caption": [
@@ -56608,7 +56608,7 @@
   {
    "images": [
     "assets/img/409ee4d253d4.jpg",
-    "assets/img/381e1f1b966c.jpg",
+    "assets/img/1fc8362978df.jpg",
     "assets/img/1cd64d8dea16.jpg",
     "assets/img/5943e0c55ec7.jpg"
    ],
@@ -57017,7 +57017,7 @@
   },
   {
    "images": [
-    "assets/img/3bc64eb1f71c.jpg",
+    "assets/img/76fd6a94df3b.jpg",
     "assets/img/66587ee372b3.jpg"
    ],
    "slides": [],
@@ -57140,7 +57140,7 @@
    "images": [
     "assets/img/8a007c512efe.jpg",
     "assets/img/a764db19d80a.jpg",
-    "assets/img/19eb78f3e809.jpg"
+    "assets/img/5091fcd531ee.jpg"
    ],
    "slides": [],
    "caption": [
@@ -57273,7 +57273,7 @@
   },
   {
    "images": [
-    "assets/img/3158361fbeba.jpg",
+    "assets/img/4eb6d847fd04.jpg",
     "assets/img/9fd900373515.jpg",
     "assets/img/17e93fd54543.jpg"
    ],
@@ -57322,7 +57322,7 @@
    "images": [
     "assets/img/080b0c1e8f66.jpg",
     "assets/img/9aa40b809bcc.jpg",
-    "assets/img/56f7cf0f2e3f.jpg"
+    "assets/img/ba7c95adbfe4.jpg"
    ],
    "slides": [],
    "caption": [],
@@ -57508,7 +57508,7 @@
   },
   {
    "images": [
-    "assets/img/ef44c2ca1719.jpg",
+    "assets/img/df8851b37a55.jpg",
     "assets/img/321bce02e689.jpg"
    ],
    "slides": [],
@@ -57606,7 +57606,7 @@
   "images": 890
  },
  "image_dims": {
-  "assets/img/3b6b72e4a1a8.jpg": [
+  "assets/img/21e79923bd55.jpg": [
    1600,
    1068
   ],
@@ -58458,6 +58458,10 @@
    757,
    355
   ],
+  "assets/img/3b6b72e4a1a8.jpg": [
+   1600,
+   1068
+  ],
   "assets/img/1db1e3df2f1c.jpg": [
    313,
    411
@@ -58690,7 +58694,7 @@
    783,
    1107
   ],
-  "assets/img/a05747f3724a.jpg": [
+  "assets/img/d4348ed169cc.jpg": [
    1600,
    1600
   ],
@@ -58914,7 +58918,7 @@
    1280,
    962
   ],
-  "assets/img/925bb9300ded.jpg": [
+  "assets/img/e666b216318c.jpg": [
    1280,
    962
   ],
@@ -59422,7 +59426,7 @@
    1280,
    766
   ],
-  "assets/img/8c48c8f796ce.jpg": [
+  "assets/img/6777ea5b39fe.jpg": [
    1280,
    750
   ],
@@ -59538,7 +59542,7 @@
    1080,
    1239
   ],
-  "assets/img/381e1f1b966c.jpg": [
+  "assets/img/1fc8362978df.jpg": [
    1280,
    836
   ],
@@ -59742,7 +59746,7 @@
    1280,
    1280
   ],
-  "assets/img/3bc64eb1f71c.jpg": [
+  "assets/img/76fd6a94df3b.jpg": [
    1280,
    1349
   ],
@@ -59802,7 +59806,7 @@
    1080,
    1278
   ],
-  "assets/img/19eb78f3e809.jpg": [
+  "assets/img/5091fcd531ee.jpg": [
    1280,
    1280
   ],
@@ -59874,7 +59878,7 @@
    1280,
    1280
   ],
-  "assets/img/3158361fbeba.jpg": [
+  "assets/img/4eb6d847fd04.jpg": [
    1280,
    1280
   ],
@@ -59910,7 +59914,7 @@
    1200,
    1600
   ],
-  "assets/img/56f7cf0f2e3f.jpg": [
+  "assets/img/ba7c95adbfe4.jpg": [
    1200,
    1600
   ],
@@ -59990,7 +59994,7 @@
    1280,
    732
   ],
-  "assets/img/ef44c2ca1719.jpg": [
+  "assets/img/df8851b37a55.jpg": [
    1280,
    719
   ],
@@ -60126,9 +60130,9 @@
    1216,
    1600
   ],
-  "assets/img/e60c3221d132.jpg": [
-   1280,
-   1420
+  "assets/img/49dcbc4d81ec.jpg": [
+   1219,
+   1600
   ],
   "assets/img/cdb59ccc1c7a.jpg": [
    1200,
