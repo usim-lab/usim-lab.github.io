@@ -3334,6 +3334,10 @@
    "s": "<b>Research Professor (Co-advisor: Prof. Y. Kim)</b>",
    "t": "<b>연구교수 (공동지도: Y. Kim 교수)</b>"
   },
+  "13db0596": {
+   "s": "<b>B.S. in Advanced Materials Science and Engineering</b>",
+   "t": "<b>고급재료과학 및 공학 학사</b>"
+  },
   "15a43767": {
    "s": "<b>Ph.D. Course</b>",
    "t": "<b>박사과정</b>"
@@ -3366,6 +3370,10 @@
    "s": "<b>Researcher, NEEL Sciences</b>",
    "t": "<b>(주)닐사이언스 연구원</b>"
   },
+  "21ef84f8": {
+   "s": "2026-Present. Editorial Board, International Journal of Chemical Kinetics, SCIE",
+   "t": "2026-현재. 편집위원회, International Journal of Chemical Kinetics, SCIE"
+  },
   "2b7be398": {
    "s": "<b>Winter Internship 2022 at KENTECH</b>",
    "t": "<b>2022 한국에너지공과대학교(KENTECH) 동계 인턴십</b>"
@@ -3377,6 +3385,10 @@
   "2fa7e8fa": {
    "s": "2019-Present. Editorial Board, Frontiers in Chemistry, SCI",
    "t": "2019-Present. Frontiers in Chemistry(SCI) 편집위원"
+  },
+  "32291936": {
+   "s": "<b>Research interests:  Defect-free bottom-up Cu filling of high aspect ratio TSVs and microvias</b>",
+   "t": "<b>연구 관심사: 고종횡비의 TSV 및 마이크로비아에 대한 결함 없는 바닥위아래 구리充填</b>"
   },
   "3552b415": {
    "s": "<b>NRF Fellow (Co-advisor: Prof. J. Kim)</b>",
@@ -3402,6 +3414,10 @@
    "s": "2026. Program Organizer, AMF-AMEC 2027, Electrocatalytic Materials for Carbon Neutrality",
    "t": "2026. AMF-AMEC 2027 프로그램 조직위원, 탄소중립을 위한 전기촉매 소재(Electrocatalytic Materials for Carbon Neutrality) 세션"
   },
+  "4526077e": {
+   "s": "2026-Present. Editorial Board, Greenverse Science, ESCI",
+   "t": "2026-현재. 편집위원회, Greenverse Science, ESCI"
+  },
   "4780080e": {
    "s": "2026-Present. Editorial Board, Greenverse Science",
    "t": "2026-Present. Greenverse Science 편집위원"
@@ -3409,6 +3425,10 @@
   "47982907": {
    "s": "<b>Current Position: Undergraduate student at KENTECH</b>",
    "t": "<b>현재: 한국에너지공과대학교(KENTECH) 학부생</b>"
+  },
+  "48efef8e": {
+   "s": "2026-Present. Editorial Board, Engin Future, ESCI",
+   "t": "2026-현재. 편집위원회, Engin Future, ESCI"
   },
   "4ae94899": {
    "s": "<b>Research interests:  Electrochemical Ammonia &amp; Hydrogen</b> <b>Production</b>",
@@ -3538,6 +3558,10 @@
    "s": "<b>M.S. in Materials Science &amp; Engineering</b>",
    "t": "<b>재료공학 석사</b>"
   },
+  "7ece2474": {
+   "s": "2026-Present. Editorial Board, Journal of Energy Materials and Devices, ESCI",
+   "t": "2026-현재. 편집위원회, Journal of Energy Materials and Devices, ESCI"
+  },
   "85037704": {
    "s": "<b>Research interests: Electrocatalyst, Water electrolysis, Hybrid Fuel cell</b>",
    "t": "<b>연구 관심 분야: 전기촉매, 수전해, 하이브리드 연료전지</b>"
@@ -3574,6 +3598,10 @@
    "s": "<b>Ph.D. Course </b>",
    "t": "<b>박사과정 </b>"
   },
+  "99971fd1": {
+   "s": "2021-Present. Editorial Board, AppliedChem, SCIE",
+   "t": "2021-현재. 편집위원회, AppliedChem, SCIE"
+  },
   "99a741d4": {
    "s": "<b>Visiting Scholar at Chonnam National University</b>",
    "t": "<b>전남대학교 방문연구원</b>"
@@ -3590,9 +3618,21 @@
    "s": "<b>B.S. in Nano Chemistry</b>",
    "t": "<b>나노화학 학사</b>"
   },
+  "9c6e2477": {
+   "s": "2026-Present. Next Generation Board, PhotoAggregate, ESCI",
+   "t": "2026-현재. 차세대 보드, PhotoAggregate, ESCI"
+  },
+  "9fb5ffbe": {
+   "s": "<b>Research interests:  Materials for Electrochemical Energy Applications</b>",
+   "t": "<b>연구 관심분야: 전기화학적 에너지 응용을 위한 재료</b>"
+  },
   "a5912cdb": {
    "s": "2017-Present. American Chemical Society, Member",
    "t": "2017-Present. 미국화학회(ACS) 회원"
+  },
+  "a7dd2f73": {
+   "s": "<b>B.S. in Nano Engineering</b>",
+   "t": "<b>나노공학 학사</b>"
   },
   "a858d577": {
    "s": "2024-Present. Editorial Board, Energies, SCI",

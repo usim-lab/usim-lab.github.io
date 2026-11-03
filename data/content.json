@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-11-03T00:41:55",
+  "synced_at": "2026-11-03T13:48:25",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -5164,7 +5164,7 @@
        "blocks": [
         {
          "t": "p",
-         "html": "<b>Sehyun Kwon (권세현)</b>"
+         "html": "<b>Hayeon Beom (범하연)</b>"
         },
         {
          "t": "p",
@@ -5172,11 +5172,11 @@
         },
         {
          "t": "p",
-         "html": "<b>B.S. in Biomechatronics Engineering</b>"
+         "html": "<b>B.S. in Nano Engineering</b>"
         },
         {
          "t": "p",
-         "html": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
+         "html": "<b>Research interests:  Defect-free bottom-up Cu filling of high aspect ratio TSVs and microvias</b>"
         }
        ]
       }
@@ -5192,7 +5192,7 @@
        "blocks": [
         {
          "t": "p",
-         "html": "<b>Sehyun Kwon (권세현)</b>"
+         "html": "<b>Yunhye Lee (이윤혜)</b>"
         },
         {
          "t": "p",
@@ -5200,11 +5200,11 @@
         },
         {
          "t": "p",
-         "html": "<b>B.S. in Biomechatronics Engineering</b>"
+         "html": "<b>B.S. in Nano Engineering</b>"
         },
         {
          "t": "p",
-         "html": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
+         "html": "<b>Research interests:  Cu Electrodeposition, Void-free Bottom-up Filling of High-Aspect-Ratio TSVs and Microvias</b>"
         }
        ]
       }
@@ -5220,7 +5220,7 @@
        "blocks": [
         {
          "t": "p",
-         "html": "<b>Sehyun Kwon (권세현)</b>"
+         "html": "<b>Chiwon Kwon (권치원)</b>"
         },
         {
          "t": "p",
@@ -5228,11 +5228,11 @@
         },
         {
          "t": "p",
-         "html": "<b>B.S. in Biomechatronics Engineering</b>"
+         "html": "<b>B.S. in Nano Engineering</b>"
         },
         {
          "t": "p",
-         "html": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
+         "html": "<b>Research interests:  ALD High-k Dielectric Thin Films (ZrO₂/TiN) for DRAM Capacitors, Process–Impurity–Leakage Correlation, Data-driven Process Optimization</b>"
         }
        ]
       }
@@ -5248,7 +5248,7 @@
        "blocks": [
         {
          "t": "p",
-         "html": "<b>Sehyun Kwon (권세현)</b>"
+         "html": "<b>Heeju Kim (김희주)</b>"
         },
         {
          "t": "p",
@@ -5256,11 +5256,11 @@
         },
         {
          "t": "p",
-         "html": "<b>B.S. in Biomechatronics Engineering</b>"
+         "html": "<b>B.S. in Advanced Materials Science and Engineering</b>"
         },
         {
          "t": "p",
-         "html": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
+         "html": "<b>Research interests:  Materials for Electrochemical Energy Applications</b>"
         }
        ]
       }
@@ -10019,23 +10019,23 @@
         },
         {
          "t": "p",
-         "html": "2026-Present. Editorial Board, Journal of Energy Materials and Devices"
+         "html": "2026-Present. Editorial Board, Journal of Energy Materials and Devices, ESCI"
         },
         {
          "t": "p",
-         "html": "2026-Present. Editorial Board, Greenverse Science"
+         "html": "2026-Present. Editorial Board, Greenverse Science, ESCI"
         },
         {
          "t": "p",
-         "html": "2026-Present. Editorial Board, International Journal of Chemical Kinetics"
+         "html": "2026-Present. Editorial Board, International Journal of Chemical Kinetics, SCIE"
         },
         {
          "t": "p",
-         "html": "2026-Present. Next Generation Board, PhotoAggregate"
+         "html": "2026-Present. Next Generation Board, PhotoAggregate, ESCI"
         },
         {
          "t": "p",
-         "html": "2026-Present. Editorial Board, Engin Future"
+         "html": "2026-Present. Editorial Board, Engin Future, ESCI"
         },
         {
          "t": "p",
@@ -10063,7 +10063,7 @@
         },
         {
          "t": "p",
-         "html": "2021-Present. Editorial Board, AppliedChem, ESCI"
+         "html": "2021-Present. Editorial Board, AppliedChem, SCIE"
         },
         {
          "t": "p",
@@ -37848,28 +37848,28 @@
     "items": [
      {
       "period": "2026-Present",
-      "text": "Editorial Board, Journal of Energy Materials and Devices",
-      "html": "2026-Present. Editorial Board, Journal of Energy Materials and Devices"
+      "text": "Editorial Board, Journal of Energy Materials and Devices, ESCI",
+      "html": "2026-Present. Editorial Board, Journal of Energy Materials and Devices, ESCI"
      },
      {
       "period": "2026-Present",
-      "text": "Editorial Board, Greenverse Science",
-      "html": "2026-Present. Editorial Board, Greenverse Science"
+      "text": "Editorial Board, Greenverse Science, ESCI",
+      "html": "2026-Present. Editorial Board, Greenverse Science, ESCI"
      },
      {
       "period": "2026-Present",
-      "text": "Editorial Board, International Journal of Chemical Kinetics",
-      "html": "2026-Present. Editorial Board, International Journal of Chemical Kinetics"
+      "text": "Editorial Board, International Journal of Chemical Kinetics, SCIE",
+      "html": "2026-Present. Editorial Board, International Journal of Chemical Kinetics, SCIE"
      },
      {
       "period": "2026-Present",
-      "text": "Next Generation Board, PhotoAggregate",
-      "html": "2026-Present. Next Generation Board, PhotoAggregate"
+      "text": "Next Generation Board, PhotoAggregate, ESCI",
+      "html": "2026-Present. Next Generation Board, PhotoAggregate, ESCI"
      },
      {
       "period": "2026-Present",
-      "text": "Editorial Board, Engin Future",
-      "html": "2026-Present. Editorial Board, Engin Future"
+      "text": "Editorial Board, Engin Future, ESCI",
+      "html": "2026-Present. Editorial Board, Engin Future, ESCI"
      },
      {
       "period": "2025-Present",
@@ -37903,8 +37903,8 @@
      },
      {
       "period": "2021-Present",
-      "text": "Editorial Board, AppliedChem, ESCI",
-      "html": "2021-Present. Editorial Board, AppliedChem, ESCI"
+      "text": "Editorial Board, AppliedChem, SCIE",
+      "html": "2021-Present. Editorial Board, AppliedChem, SCIE"
      },
      {
       "period": "2018-Present",
@@ -40168,82 +40168,74 @@
      "degree_suffix": ""
     },
     {
-     "name": "Sehyun Kwon (권세현)",
+     "name": "Hayeon Beom (범하연)",
      "order": null,
-     "name_en": "Sehyun Kwon",
-     "name_ko": "권세현",
+     "name_en": "Hayeon Beom",
+     "name_ko": "범하연",
      "nick": "",
      "is_dr": false,
      "roles": [
       "<b>Undergraduate Research Student </b>",
-      "<b>B.S. in Biomechatronics Engineering</b>"
+      "<b>B.S. in Nano Engineering</b>",
+      "<b>Research interests:  Defect-free bottom-up Cu filling of high aspect ratio TSVs and microvias</b>"
+     ],
+     "details": [],
+     "stats": {},
+     "degree_suffix": ""
+    },
+    {
+     "name": "Yunhye Lee (이윤혜)",
+     "order": null,
+     "name_en": "Yunhye Lee",
+     "name_ko": "이윤혜",
+     "nick": "",
+     "is_dr": false,
+     "roles": [
+      "<b>Undergraduate Research Student </b>",
+      "<b>B.S. in Nano Engineering</b>"
      ],
      "details": [
       {
        "k": "p",
-       "html": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
+       "html": "<b>Research interests:  Cu Electrodeposition, Void-free Bottom-up Filling of High-Aspect-Ratio TSVs and Microvias</b>"
       }
      ],
      "stats": {},
      "degree_suffix": ""
     },
     {
-     "name": "Sehyun Kwon (권세현)",
+     "name": "Chiwon Kwon (권치원)",
      "order": null,
-     "name_en": "Sehyun Kwon",
-     "name_ko": "권세현",
+     "name_en": "Chiwon Kwon",
+     "name_ko": "권치원",
      "nick": "",
      "is_dr": false,
      "roles": [
       "<b>Undergraduate Research Student </b>",
-      "<b>B.S. in Biomechatronics Engineering</b>"
+      "<b>B.S. in Nano Engineering</b>"
      ],
      "details": [
       {
        "k": "p",
-       "html": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
+       "html": "<b>Research interests:  ALD High-k Dielectric Thin Films (ZrO₂/TiN) for DRAM Capacitors, Process–Impurity–Leakage Correlation, Data-driven Process Optimization</b>"
       }
      ],
      "stats": {},
      "degree_suffix": ""
     },
     {
-     "name": "Sehyun Kwon (권세현)",
+     "name": "Heeju Kim (김희주)",
      "order": null,
-     "name_en": "Sehyun Kwon",
-     "name_ko": "권세현",
+     "name_en": "Heeju Kim",
+     "name_ko": "김희주",
      "nick": "",
      "is_dr": false,
      "roles": [
       "<b>Undergraduate Research Student </b>",
-      "<b>B.S. in Biomechatronics Engineering</b>"
+      "<b>B.S. in Advanced Materials Science and Engineering</b>",
+      "<b>Research interests:  Materials for Electrochemical Energy Applications</b>"
      ],
-     "details": [
-      {
-       "k": "p",
-       "html": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
-      }
-     ],
-     "stats": {},
-     "degree_suffix": ""
-    },
-    {
-     "name": "Sehyun Kwon (권세현)",
-     "order": null,
-     "name_en": "Sehyun Kwon",
-     "name_ko": "권세현",
-     "nick": "",
-     "is_dr": false,
-     "roles": [
-      "<b>Undergraduate Research Student </b>",
-      "<b>B.S. in Biomechatronics Engineering</b>"
-     ],
-     "details": [
-      {
-       "k": "p",
-       "html": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
-      }
-     ],
+     "details": [],
      "stats": {},
      "degree_suffix": ""
     }
