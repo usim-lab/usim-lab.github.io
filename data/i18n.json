@@ -3478,6 +3478,10 @@
    "s": "<b>Postdoctoral Scholar</b>",
    "t": "<b>박사후연구원</b>"
   },
+  "65a99ba1": {
+   "s": "<b>B.S. in Biomechatronics Engineering</b>",
+   "t": "<b>바이오메카트로닉스 공학 학사</b>"
+  },
   "66dac504": {
    "s": "<b>Current position: Jeonnam Research Institute </b>",
    "t": "<b>현재: 전남연구원 </b>"
@@ -3645,6 +3649,10 @@
   "c1fa6b19": {
    "s": "<b>Visiting Researcher</b>",
    "t": "<b>방문연구원</b>"
+  },
+  "ce725cc1": {
+   "s": "<b>Undergraduate Research Student </b>",
+   "t": "<b>학사 연구 학생</b>"
   },
   "d4bc2650": {
    "s": "<b>Current Position: Ph.D Course at KENTECH </b>",
