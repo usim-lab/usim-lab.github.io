@@ -1,6 +1,6 @@
 {
  "meta": {
-  "synced_at": "2026-11-03T22:59:23",
+  "synced_at": "2026-11-04T14:02:02",
   "source": "https://sites.google.com/view/uksim",
   "pages": [
    "home",
@@ -37649,7 +37649,6 @@
    "<b>안녕하세요. 저희 에너지환경나노재료연구실(NEEL)에서 함께 연구하고자 하시는 연구원 및 석박사과정 학생 지원자분들은 </b><a href=\"mailto:usim@skku.edu\" target=\"_blank\" rel=\"noopener\"><b><u>usim@skku.edu</u></b></a><b> 로 연락주시길 바랍니다.</b>"
   ],
   "intro": [
-   "<a href=\"https://usim-lab.github.io/#/\" target=\"_blank\" rel=\"noopener\"><b><u>&lt;Renewal Hompage&gt;</u></b></a>",
    "<b>Our laboratory focuses mainly on the development of nanomaterials for energy production, conversion, and storage, as well as on renewable energy produced by (photo)electrochemical reactions to create a future sustainable energy system. In order to understand the exact underlying mechanisms of these reactions and to enhance conversion efficiency, we perform in-depth analyses at the surface of the electrode or catalyst and at the interface between electrode and electrolyte.</b>"
   ],
   "images": [
@@ -40156,14 +40155,10 @@
      "is_dr": false,
      "roles": [
       "<b>Undergraduate Research Student </b>",
-      "<b>B.S. in Biomechatronics Engineering</b>"
+      "<b>B.S. in Biomechatronics Engineering</b>",
+      "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
      ],
-     "details": [
-      {
-       "k": "p",
-       "html": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>"
-      }
-     ],
+     "details": [],
      "stats": {},
      "degree_suffix": ""
     },
@@ -40192,14 +40187,10 @@
      "is_dr": false,
      "roles": [
       "<b>Undergraduate Research Student </b>",
-      "<b>B.S. in Nano Engineering</b>"
+      "<b>B.S. in Nano Engineering</b>",
+      "<b>Research interests:  Cu Electrodeposition, Void-free Bottom-up Filling of High-Aspect-Ratio TSVs and Microvias</b>"
      ],
-     "details": [
-      {
-       "k": "p",
-       "html": "<b>Research interests:  Cu Electrodeposition, Void-free Bottom-up Filling of High-Aspect-Ratio TSVs and Microvias</b>"
-      }
-     ],
+     "details": [],
      "stats": {},
      "degree_suffix": ""
     },
@@ -40212,14 +40203,10 @@
      "is_dr": false,
      "roles": [
       "<b>Undergraduate Research Student </b>",
-      "<b>B.S. in Nano Engineering</b>"
+      "<b>B.S. in Nano Engineering</b>",
+      "<b>Research interests:  ALD High-k Dielectric Thin Films (ZrO₂/TiN) for DRAM Capacitors, Process–Impurity–Leakage Correlation, Data-driven Process Optimization</b>"
      ],
-     "details": [
-      {
-       "k": "p",
-       "html": "<b>Research interests:  ALD High-k Dielectric Thin Films (ZrO₂/TiN) for DRAM Capacitors, Process–Impurity–Leakage Correlation, Data-driven Process Optimization</b>"
-      }
-     ],
+     "details": [],
      "stats": {},
      "degree_suffix": ""
     },

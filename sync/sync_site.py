@@ -604,9 +604,23 @@ def text_lines(lines):
 YEAR_RE = re.compile(r"(20\d\d|19\d\d)")
 
 
+SELF_LINK_RE = re.compile(r"usim-lab\.github\.io", re.I)
+RENEWAL_RE = re.compile(r"renewal\s*hom|새\s*홈페이지|리뉴얼", re.I)
+
+
+def is_renewal_notice(l):
+    """구글 사이트에 걸어 둔 '<Renewal Hompage>' 같은 새 홈페이지 안내 링크 → 새 홈페이지에서는 숨김."""
+    t = l.get("text") or ""
+    if RENEWAL_RE.search(t):
+        return True
+    return len(t) < 60 and bool(SELF_LINK_RE.search(l.get("html") or ""))
+
+
 def parse_home(lines):
     d = {"banner": None, "title": "", "notice": [], "intro": [], "images": [], "email": "usim@skku.edu"}
     for l in lines:
+        if l["k"] in ("p", "li") and is_renewal_notice(l):
+            continue
         if l["k"] == "img" and l.get("bg") and not d["banner"]:
             d["banner"] = l["file"]
         elif l["k"] == "img" and l["file"]:
@@ -870,7 +884,12 @@ def parse_members(lines):
         if cur is None:
             continue
         # roles: short lines directly after the name, before the first detail marker
-        if not cur["details"] and len(cur["roles"]) < 5 and len(t) < 110 and not t.startswith(("[", "<", "•")) \
+        # ("Research interests: …" 줄은 길어도 카드에 보이도록 roles 로 — 학부연구생은 관심사가 길게 적힘)
+        # ("Research goal: …", "About: …" 같은 소개 줄도 길어도 roles 로 → 홈페이지 프로필 창에 표시)
+        is_topic = bool(re.match(r"^\s*(Research\s+interests?\b|((Research|Future)\s+)?(Goals?|Vision|Plans?|Next\s+steps?)\s*[:：]|"
+                                 r"(About(\s+me)?|Intro(duction)?|Bio(graphy)?|Self[- ]introduction)\s*[:：]|(연구\s*)?(목표|계획|비전)\s*[:：]|(자기\s*)?소개\s*[:：])", t, re.I))
+        if not cur["details"] and (len(cur["roles"]) < 5 or is_topic) and (len(t) < 110 or is_topic) \
+                and not t.startswith(("[", "<", "•")) \
                 and not re.match(r"^\d", t) and not re.search(r"(Main author|Co-author|First-Author|Co-Author)", t):
             cur["roles"].append(l["html"])
             continue

@@ -3388,7 +3388,7 @@
   },
   "32291936": {
    "s": "<b>Research interests:  Defect-free bottom-up Cu filling of high aspect ratio TSVs and microvias</b>",
-   "t": "<b>연구 관심사: 고종횡비의 TSV 및 마이크로비아에 대한 결함 없는 바닥위아래 구리充填</b>"
+   "t": "<b>연구 관심 분야: 고종횡비 TSV 및 마이크로비아의 결함 없는 바텀업 구리(Cu) 충전</b>"
   },
   "3552b415": {
    "s": "<b>NRF Fellow (Co-advisor: Prof. J. Kim)</b>",
@@ -3465,6 +3465,10 @@
   "5a164261": {
    "s": "<b>Current Position: KEPCO E&amp;C</b>",
    "t": "<b>현재: 한국전력기술(KEPCO E&amp;C)</b>"
+  },
+  "5b242c0c": {
+   "s": "<b>Research interests:  ALD High-k Dielectric Thin Films (ZrO₂/TiN) for DRAM Capacitors, Process–Impurity–Leakage Correlation, Data-driven Process Optimization</b>",
+   "t": "<b>연구 관심 분야: DRAM 커패시터용 ALD 고유전율(High-k) 박막(ZrO₂/TiN), 공정–불순물–누설전류 상관관계, 데이터 기반 공정 최적화</b>"
   },
   "5b56d7b6": {
    "s": "<b>Research Professor and CTO, NEEL Sciences </b>",
@@ -3626,6 +3630,10 @@
    "s": "<b>Research interests:  Materials for Electrochemical Energy Applications</b>",
    "t": "<b>연구 관심분야: 전기화학적 에너지 응용을 위한 재료</b>"
   },
+  "a27bc8d5": {
+   "s": "<b>Research interests:  Cu Electrodeposition, Void-free Bottom-up Filling of High-Aspect-Ratio TSVs and Microvias</b>",
+   "t": "<b>연구 관심 분야: 구리(Cu) 전해도금, 고종횡비 TSV 및 마이크로비아의 보이드 없는 바텀업 충전</b>"
+  },
   "a5912cdb": {
    "s": "2017-Present. American Chemical Society, Member",
    "t": "2017-Present. 미국화학회(ACS) 회원"
@@ -3690,9 +3698,13 @@
    "s": "<b>Visiting Researcher</b>",
    "t": "<b>방문연구원</b>"
   },
+  "c943e173": {
+   "s": "<b>Research interests:  BEOL Cu Interconnect Process Optimization, Electrodeposition, Grain Growth &amp; Resistivity Control</b>",
+   "t": "<b>연구 관심 분야: BEOL 구리(Cu) 배선 공정 최적화, 전해도금, 결정립 성장 및 비저항 제어</b>"
+  },
   "ce725cc1": {
    "s": "<b>Undergraduate Research Student </b>",
-   "t": "<b>학사 연구 학생</b>"
+   "t": "<b>학부연구생</b>"
   },
   "d4bc2650": {
    "s": "<b>Current Position: Ph.D Course at KENTECH </b>",

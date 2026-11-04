@@ -531,22 +531,190 @@ ${en.length && LANG === "en" ? `<section class="sec"><div class="container">
     alumniGroups.forEach((g, gi) => {
       html += `<div id="g-${slugify(g.title)}" style="margin-bottom:64px;scroll-margin-top:80px">
         <div class="sec-head row" style="margin-bottom:12px"><h2 class="reveal display" style="font-size:clamp(24px,3.4vw,38px);margin:0">${esc(groupTitle(g.title))}</h2><span class="mono muted small">${g.members.length}</span></div>
-        <div class="lg reveal" style="padding:6px 22px">${g.members.map((m, i) => `<div class="alumni-row" data-toggle="al-${gi}-${i}" id="mem-${slugify(m.name_en)}"${aiAttr("member:" + slugify(m.name_en), m.name_en)}><div class="mem-avatar" style="${pal(i)}">${esc(initials(m.name_en))}</div><div style="flex:1;min-width:0"><div class="nm">${m.order ? `<span class="mono muted" style="font-size:11px;margin-right:8px">${m.order}</span>` : ""}${esc(dispName(m.name))}</div><div class="rl rich">${(m.roles || []).join(" · ")}</div><div class="detail-panel lg hidden" id="al-${gi}-${i}" style="margin-top:14px;padding:20px">${memberDetails(m)}</div></div><span class="mem-more">${m.details.length ? "▾" : ""}</span></div>`).join("")}</div></div>`;
+        <div class="lg reveal" style="padding:6px 22px">${g.members.map((m, i) => `<div class="alumni-row" data-member="${slugify(m.name_en)}" id="mem-${slugify(m.name_en)}"${aiAttr("member:" + slugify(m.name_en), m.name_en)}><div class="mem-avatar" style="${pal(i)}">${esc(initials(m.name_en))}</div><div style="flex:1;min-width:0"><div class="nm">${m.order ? `<span class="mono muted" style="font-size:11px;margin-right:8px">${m.order}</span>` : ""}${esc(dispName(m.name))}</div><div class="rl rich">${(m.roles || []).filter((r, k) => !/^(goal|intro)$/.test(roleKind(m, k))).join(" · ")}</div></div><span class="mem-more">›</span></div>`).join("")}</div></div>`;
     });
     html += `</div></section>`;
     return html;
   }
   function memberCard(m, i, id) {
     const st = m.stats || {};
-    const isTopic = (r) => /interests|position|advisor|thesis/i.test(txt(r));
-    const roleLines = (m.roles || []).filter((r) => !isTopic(r)), topicLines = (m.roles || []).filter(isTopic);
-    return `<div class="lg card mem-card reveal d-${(i % 4) + 1}" data-toggle="mem-${id}" id="mem-${slugify(m.name_en)}"${aiAttr("member:" + slugify(m.name_en), m.name_en)}><div class="mem-avatar" style="${pal(i)}">${esc(initials(m.name_en))}</div>
+    // intro / goal lines are long → profile only; interests & positions stay on the card
+    const kinds = (m.roles || []).map((r, k) => roleKind(m, k));
+    const isTopic = (r, k) => kinds[k] === "interest" || kinds[k] === "now" || /interests|position|advisor|thesis/i.test(txt(origAt(m.roles, k)));
+    const shown = (m.roles || []).map((r, k) => [r, k]).filter(([, k]) => kinds[k] !== "goal" && kinds[k] !== "intro");
+    const roleLines = shown.filter(([r, k]) => !isTopic(r, k)).map(([r]) => r), topicLines = shown.filter(([r, k]) => isTopic(r, k)).map(([r]) => r);
+    return `<div class="lg card mem-card reveal d-${(i % 4) + 1}" data-member="${slugify(m.name_en)}" id="mem-${slugify(m.name_en)}"${aiAttr("member:" + slugify(m.name_en), m.name_en)}><div class="mem-avatar" style="${pal(i)}">${esc(initials(m.name_en))}</div>
       <div><div class="mem-name">${esc(memberNames(m)[0])}</div><div class="mem-ko">${esc(memberNames(m)[1])}</div></div>
       <div class="mem-role rich">${roleLines.slice(0, 2).join("<br>")}</div>
       ${roleLines.slice(2).concat(topicLines).length ? `<div class="mem-topic rich">${roleLines.slice(2).concat(topicLines).join("<br>")}</div>` : ""}
       ${st.main != null || st.co != null ? `<div class="mem-stats">${st.main != null ? `<span class="tag">${t("main_author")} ${st.main}</span>` : ""}${st.co != null ? `<span class="tag gray">${t("co_author")} ${st.co}</span>` : ""}</div>` : ""}
-      ${m.details && m.details.length ? `<span class="mem-more">${t("show_details")} ▾</span>` : ""}</div>
-      <div class="detail-panel lg hidden" id="mem-${id}">${memberDetails(m)}</div>`;
+      <span class="mem-more">${L2("프로필 보기", "View profile")} →</span></div>`;
+  }
+  /* ---------- People index: who is on which paper / patent / talk / award ----------
+     Names are compared loosely (case, spaces, hyphens, Dr., common romanisation variants),
+     so "Dae Joon Moon" on a paper and "Dae Jun Moon" on the members page are one person.
+     Spellings a member underlined in their own Google-Sites record count as aliases too. */
+  const canonName = (s) => { let c = txt(s).replace(/[†‡*#§¶]/g, "").replace(/^\s*(Dr|Prof)\.?\s+/i, "").toLowerCase().replace(/[^a-z]/g, ""); [["jeong", "jung"], ["yeong", "yong"], ["young", "yong"], ["oo", "u"]].forEach(([a, b]) => { c = c.split(a).join(b); }); return c; };
+  const authorList = (s) => txt(s).split(/[“"]/)[0].split(/,|;|\band\b|&/).map((x) => x.trim()).filter(Boolean);
+  const normTitle = (s) => txt(s).toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 60);
+  const quotedTitle = (s) => { const m = txt(s).match(/[“"]([^”"]{20,})[”"]/); return m ? m[1] : ""; };
+  const ROLE_KIND = [
+    ["interest", /^\s*research\s+interests?\s*[:：]?/i],
+    ["goal", /^\s*((research|future)\s+)?(goals?|vision|plans?|next\s+steps?)\s*[:：]|^\s*(연구\s*)?(목표|계획|비전)\s*[:：]/i],
+    ["intro", /^\s*(about(\s+me)?|intro(duction)?|bio(graphy)?|self[- ]introduction)\s*[:：]|^\s*(자기\s*)?소개\s*[:：]/i],
+    ["now", /^\s*current\s+position\s*[:：]/i],
+  ];
+  // the role lines are swapped for translations in KO mode → classify by the original wording
+  const origAt = (arr, i) => { const r = ORIG.get(arr); return r && i in r ? r[i] : arr[i]; };
+  const roleKind = (m, i) => { const o = txt(origAt(m.roles, i)); const k = ROLE_KIND.find(([, re]) => re.test(o)); return k ? k[0] : "role"; };
+  const afterLabel = (h) => txt(h).replace(/^[^:：]{0,40}[:：]\s*/, "").trim();
+  const splitList = (s) => s.split(/[,;·](?![^()]*\))/).map((x) => x.trim()).filter(Boolean);
+  // research themes, read from paper titles (keyword rules; shown as "based on paper titles")
+  const THEMES = [
+    ["nh3", "암모니아 합성 · 질소/질산염 환원", "Ammonia synthesis · N₂/NO₃⁻ reduction", /ammonia|nitrate|nitrite|nitrogen reduction|\bNRR\b|\bNO3|NOx|N2 reduction|nitrogen fixation/i],
+    ["water", "수전해 · 수소 생산", "Water electrolysis · H₂ production", /water[- ](electrolysis|splitting|oxidation)|hydrogen evolution|\bHER\b|oxygen evolution|\bOER\b|electrolys|electrolyz|\bhydrogen production/i],
+    ["pec", "광전기화학 · 광촉매", "Photoelectrochemistry · photocatalysis", /photo(electro)?chem|photocataly|photoelectrode|photoanode|photocathode|solar[- ]driven|solar (hydrogen|fuel)/i],
+    ["2d", "단원자 · 2차원 소재 촉매", "Single-atom & 2D catalysts", /single[- ]atom|MXene|graphene|two-dimensional|\b2D\b|MoS2|nanosheet|carbon nitride/i],
+    ["batt", "이차전지 · 에너지 저장", "Batteries · energy storage", /batter|lithium|sodium[- ]ion|\bLi[- ]|zinc[- ]air|Zn-I|supercapacitor|energy storage/i],
+    ["co2", "CO₂ 전환", "CO₂ conversion", /\bCO2\b|CO₂|carbon dioxide/i],
+    ["hea", "고엔트로피 · 합금 촉매", "High-entropy & alloy catalysts", /high[- ]entropy|alloy/i],
+    ["fc", "연료전지", "Fuel cells", /fuel cell/i],
+    ["sea", "해수 전해", "Seawater electrolysis", /seawater/i],
+    ["env", "환경 · 농업 응용", "Environment · agriculture", /agrivoltaic|crop|wastewater|pollut|urea|hydrazine/i],
+    ["sense", "센서 · 바이오 응용", "Sensing · bio applications", /sensor|sensing|biosens|biomarker|cancer|therap|antibacterial|stem cell/i],
+    ["semi", "반도체 공정 · 박막", "Semiconductor process · thin films", /interconnect|electrodeposition|thin film|atomic layer|\bALD\b|dielectric|\bTSV|semiconductor|quantum dot/i],
+    ["comp", "계산 · 머신러닝", "Computation · machine learning", /machine learning|density functional|\bDFT\b|computational|first[- ]principles|deep learning|data[- ]driven/i],
+    ["ceramic", "프로톤 전도 세라믹", "Proton-conducting ceramics", /proton[- ]conduct|protonic|solid oxide/i],
+  ];
+  let PEOPLE = null;
+  function people() {
+    if (PEOPLE) return PEOPLE;
+    const list = [], bySlug = new Map(), byAlias = new Map(), pubPeople = new Map();
+    MEMBERS.forEach((g, gi) => g.members.forEach((m, i) => {
+      const p = { m, g, gi, i, alumni: /alumni/i.test(g.title), slug: slugify(m.name_en), pubs: [], pats: [], pres: [], awards: [] };
+      const sur = m.name_en.split(/\s+/).pop().toLowerCase();
+      const al = new Set([canonName(m.name_en)]);
+      (m.details || []).forEach((d) => (String(d.html).match(/<(u|b)>(.*?)<\/\1>/g) || []).forEach((u) => {
+        const s = txt(u).replace(/[†‡*,]/g, "").replace(/^\s*Dr\.?\s+/i, "").trim(); const w = s.split(/\s+/);
+        if (w.length >= 2 && w.length <= 4 && s.length <= 32 && w.every((x) => /^[A-Z][A-Za-z'\-]+$/.test(x)) && w[w.length - 1].toLowerCase() === sur) al.add(canonName(s));
+      }));
+      al.forEach((a) => { if (!byAlias.has(a)) byAlias.set(a, p); });
+      if (!bySlug.has(p.slug)) bySlug.set(p.slug, p);
+      list.push(p);
+    }));
+    const find = (name) => byAlias.get(canonName(name));
+    const addPub = (pb, p, role) => {
+      const arr = pubPeople.get(pb.num) || []; if (arr.some((x) => x.p === p)) return; arr.push(Object.assign({ p }, role)); pubPeople.set(pb.num, arr);
+      p.pubs.push(Object.assign({ pb }, role));
+    };
+    PUBS.forEach((pb) => {
+      const au = authorList(pb.authors); const dag = au.some((a) => /[†‡]/.test(a));
+      au.forEach((a, k) => { const p = find(a); if (p) addPub(pb, p, { first: dag ? /[†‡]/.test(a) : k === 0, corr: /\*/.test(a) }); });
+    });
+    // papers a member listed on their own record but whose author spelling we could not match
+    const byTitle = new Map(); PUBS.forEach((pb) => { const k = normTitle(pb.title); if (k.length > 24 && !byTitle.has(k)) byTitle.set(k, pb); });
+    list.forEach((p) => (p.m.details || []).forEach((d) => { const q = quotedTitle(d.html); const pb = q && byTitle.get(normTitle(q)); if (pb) addPub(pb, p, { first: false, corr: false }); }));
+    (PATS.registered || []).concat(PATS.applications || []).forEach((pt) => { const seen = new Set(); authorList(pt.inventors).forEach((a) => { const p = find(a); if (p && !seen.has(p)) { seen.add(p); p.pats.push(pt); } }); });
+    PRES.forEach((y) => y.items.forEach((it) => { const seen = new Set(); authorList(it.text).forEach((a) => { const p = find(a); if (p && !seen.has(p)) { seen.add(p); p.pres.push(Object.assign({ year: y.year }, { it })); } }); }));
+    AWARDS.forEach((aw) => { const names = authorList(aw.recipient || String(aw.headline || "").split(/[,.]/)[0]); const seen = new Set(); names.forEach((a) => { const p = find(a); if (p && !seen.has(p)) { seen.add(p); p.awards.push(aw); } }); });
+    list.forEach((p) => p.pubs.sort((a, b) => (+b.pb.year || 0) - (+a.pb.year || 0) || (b.pb.num || 0) - (a.pb.num || 0)));
+    PEOPLE = { list, bySlug, pubPeople };
+    return PEOPLE;
+  }
+  const personName = (p) => memberNames(p.m)[0];
+  function personChip(x, opts) {
+    const p = x.p || x, o = opts || {};
+    const tag = o.count != null ? `<i>${o.count}</i>` : x.first ? `<i>${L2("1저자", "1st")}</i>` : "";
+    return `<button type="button" class="person${p.alumni ? " alum" : ""}" data-member="${esc(p.slug)}" title="${esc(dispName(p.m.name))}${p.alumni ? " · " + esc(groupTitle("alumni")) : ""}"><span class="pav" style="${pal(p.i)}">${esc(initials(p.m.name_en))}</span><span class="pn">${esc(personName(p))}</span>${tag}</button>`;
+  }
+  function pubPeopleRow(pb) {
+    const arr = people().pubPeople.get(pb.num) || []; if (!arr.length) return "";
+    return `<div class="pub-people"><span class="lbl">${L2("참여 구성원", "NEEL authors")}</span>${arr.map((x) => personChip(x)).join("")}</div>`;
+  }
+  function personThemes(p) {
+    const c = new Map(); p.pubs.forEach(({ pb }) => THEMES.forEach(([id, , , re]) => { if (re.test(pb.title || "")) c.set(id, (c.get(id) || 0) + 1); }));
+    return THEMES.filter(([id]) => c.has(id)).map(([id, ko, en]) => ({ id, label: L2(ko, en), n: c.get(id) })).sort((a, b) => b.n - a.n);
+  }
+  // sections of the member's own Google-Sites record that exist nowhere else on the site
+  function personRecords(p) {
+    const out = { prep: [], before: [] }; let kind = null;
+    (p.m.details || []).forEach((d) => {
+      const tx = txt(d.html);
+      if (/^\[.*\]$/.test(tx) || /^<.*>$/.test(tx) || d.k.startsWith("h")) { kind = /prep|submit|progress/i.test(tx) ? "prep" : /before/i.test(tx) && !/patent/i.test(tx) ? "before" : null; return; }
+      if (kind && tx.length > 30) out[kind].push(d.html);
+    });
+    return out;
+  }
+  function profileHTML(p) {
+    const m = p.m, kinds = (m.roles || []).map((r, i) => roleKind(m, i));
+    const pick = (k) => (m.roles || []).filter((r, i) => kinds[i] === k);
+    const roles = pick("role"), interests = pick("interest").flatMap((r) => splitList(afterLabel(r))), goals = pick("goal").map(afterLabel), intro = pick("intro").map(afterLabel), now = pick("now").map(afterLabel);
+    const themes = personThemes(p), st = m.stats || {};
+    const nPub = p.pubs.length, nFirst = p.pubs.filter((x) => x.first).length, nCover = p.pubs.filter((x) => x.pb.cover).length;
+    const yrs = p.pubs.map((x) => +x.pb.year).filter(Boolean), y0 = Math.min(...yrs), y1 = Math.max(...yrs);
+    const span = yrs.length ? (y0 === y1 ? String(y0) : `${y0}–${y1}`) : "";
+    const top = themes.slice(0, 2).map((x) => x.label);
+    // the member's own "Main author" count (Google Site) wins over the count computed from † marks
+    const showFirst = nFirst && st.main == null;
+    const summary = nPub ? L2(
+      `${span}년 NEEL에서 논문 ${nPub}편에 ${top.length ? "참여했으며" : "참여했습니다"}${showFirst ? `(그중 ${nFirst}편은 1저자·공동 1저자)` : ""}${top.length ? `, 주로 <b>${esc(top.join(", "))}</b> 연구를 해 왔습니다` : ""}.`,
+      `${nPub} NEEL paper${nPub > 1 ? "s" : ""} (${span})${showFirst ? `, ${nFirst} as first or co-first author` : ""}${top.length ? ` — mostly on <b>${esc(top.join(" and "))}</b>` : ""}.`) : "";
+    const tiles = [[L2("NEEL 논문", "NEEL papers"), nPub], [t("main_author"), st.main != null ? st.main : nFirst], [t("co_author"), st.co != null ? st.co : 0], [L2("표지 논문", "Covers"), nCover], [t("stat_pat"), p.pats.length], [t("stat_pres"), p.pres.length], [t("stat_award"), p.awards.length]].filter((x) => x[1]);
+    const collab = new Map(); p.pubs.forEach(({ pb }) => (people().pubPeople.get(pb.num) || []).forEach((x) => { if (x.p !== p) collab.set(x.p, (collab.get(x.p) || 0) + 1); }));
+    const collabTop = Array.from(collab.entries()).sort((a, b) => b[1] - a[1]).slice(0, 8);
+    const rec = personRecords(p);
+    const all = people().list, k = all.indexOf(p), prev = all[(k - 1 + all.length) % all.length], next = all[(k + 1) % all.length];
+    const maxT = themes.length ? themes[0].n : 1;
+    const pubLi = ({ pb, first, corr }) => `<li class="pf-pub"><div class="pf-pub-t">${pb.doi ? `<a href="${esc(pb.doi)}" target="_blank" rel="noopener">${esc(pb.title)}</a>` : esc(pb.title)}</div>
+        <div class="pf-pub-m"><span class="journal">${esc(pb.journal)}</span><span class="mono">${esc(pb.year || "")}</span>${first ? `<span class="tag">${L2("1저자", "1st author")}</span>` : ""}${corr ? `<span class="tag pink">${L2("교신", "Corresp.")}</span>` : ""}${pb.cover ? `<span class="tag gold">★ Cover</span>` : ""}<a class="pf-num" href="#/publication#pub-${pb.num}">#${pb.num}</a></div></li>`;
+    const acc = (title, n, body, open) => `<details class="pf-acc"${open ? " open" : ""}><summary><span>${title}</span><span class="mono muted">${n}</span></summary><div class="pf-acc-b">${body}</div></details>`;
+    const LIM = 6;
+    return `<div class="pf-top">
+      <button class="pf-nav" data-member="${esc(prev.slug)}" aria-label="${L2("이전 구성원", "Previous member")}">‹</button>
+      <span class="mono muted small">${esc(groupTitle(p.g.title))}${m.order ? ` · #${m.order}` : ""}</span>
+      <button class="pf-nav" data-member="${esc(next.slug)}" aria-label="${L2("다음 구성원", "Next member")}">›</button>
+      <button class="pf-close" id="pf-close" aria-label="${t("close")}">✕</button></div>
+    <div class="pf-head"><div class="mem-avatar" style="${pal(p.i)}">${esc(initials(m.name_en))}</div>
+      <div class="pf-id"><h3 class="display">${esc(memberNames(m)[0])}</h3><div class="mem-ko">${esc(memberNames(m)[1])}</div>
+        ${roles.length ? `<div class="mem-role rich" style="margin-top:10px">${roles[0]}</div>${roles.slice(1).map((r) => `<div class="pf-sub rich">${r}</div>`).join("")}` : ""}
+        ${now.length ? `<div class="pf-sub"><span class="tag green">${L2("현재", "Now")}</span> ${esc(now.join(" · "))}</div>` : ""}</div></div>
+    ${intro.length ? `<p class="pf-intro">${esc(intro.join(" "))}</p>` : ""}
+    ${summary ? `<p class="pf-summary">${summary}</p>` : ""}
+    ${tiles.length ? `<div class="pf-tiles">${tiles.map(([l, v]) => `<div class="pf-tile"><div class="v">${v}</div><div class="l">${esc(l)}</div></div>`).join("")}</div>` : ""}
+    ${interests.length ? `<div class="pf-sec"><p class="kicker">${L2("연구 관심 분야", "Research interests")}</p><div class="chips">${interests.map((x) => `<span class="chip blue static">${esc(x)}</span>`).join("")}</div></div>` : ""}
+    ${goals.length ? `<div class="pf-sec"><p class="kicker">${L2("앞으로의 연구 목표", "What's next")}</p>${goals.map((g) => `<p class="pf-goal">${esc(g)}</p>`).join("")}</div>` : (!p.alumni && isAdmin() ? `<div class="pf-sec"><p class="kicker">${L2("앞으로의 연구 목표", "What's next")}</p><p class="muted small">${L2("구글 사이트 구성원 이름 아래에 “Research goal: …” 한 줄을 넣으면 여기에 표시됩니다. (관리자에게만 보이는 안내)", "Add a line “Research goal: …” under the name on the Google Site to show it here. (admin-only hint)")}</p></div>` : "")}
+    ${themes.length ? `<div class="pf-sec"><p class="kicker">${L2("주로 해 온 연구", "Main research so far")}</p><div class="pf-bars">${themes.slice(0, 5).map((x) => `<div class="pf-bar" title="${esc(x.label)} · ${x.n}${L2("편", " papers")}"><span class="lb">${esc(x.label)}</span><span class="tr"><span style="width:${Math.max(6, Math.round(x.n / maxT * 100))}%"></span></span><span class="n mono">${x.n}</span></div>`).join("")}</div><p class="pf-note">${L2("NEEL 논문 제목의 키워드로 자동 분류했습니다.", "Auto-classified from the titles of NEEL papers.")}</p></div>` : ""}
+    ${collabTop.length ? `<div class="pf-sec"><p class="kicker">${L2("자주 함께한 구성원", "Frequent NEEL co-authors")}</p><div class="pf-people">${collabTop.map(([q, n]) => personChip(q, { count: n })).join("")}</div></div>` : ""}
+    ${nPub ? `<div class="pf-sec"><p class="kicker">${L2("NEEL 논문", "NEEL papers")} · ${nPub}</p><ol class="pf-pubs">${p.pubs.slice(0, LIM).map(pubLi).join("")}</ol>${nPub > LIM ? `<ol class="pf-pubs hidden" id="pf-more">${p.pubs.slice(LIM).map(pubLi).join("")}</ol><button class="btn btn-ghost pf-morebtn" id="pf-morebtn">${L2(`논문 ${nPub - LIM}편 더 보기`, `Show ${nPub - LIM} more`)} ▾</button>` : ""}</div>` : ""}
+    <div class="pf-sec">
+      ${p.pats.length ? acc(t("stat_pat"), p.pats.length, `<ul class="pf-list">${p.pats.map((x) => `<li><a href="#/patent#pat-${x.status}-${x.num}">${esc(x.title)}</a> <span class="tag ${x.status === "registered" ? "green" : "orange"}">${x.status === "registered" ? t("registered") : t("application")}</span></li>`).join("")}</ul>`) : ""}
+      ${p.pres.length ? acc(t("stat_pres"), p.pres.length, `<ul class="pf-list">${p.pres.map(({ it, year }) => `<li><span class="mono muted">${esc(year)}</span> <a href="#/presentation#pres-${it.num}">${esc((quotedTitle(it.text) || it.text).slice(0, 160))}</a>${it.invited ? ` <span class="tag">${t("invited")}</span>` : ""}</li>`).join("")}</ul>`) : ""}
+      ${p.awards.length ? acc(t("stat_award"), p.awards.length, `<ul class="pf-list">${p.awards.map((a) => `<li><span class="mono muted">${esc(a.year)}</span> <a href="#/award#award-${a.num}">${esc(a.headline)}</a></li>`).join("")}</ul>`) : ""}
+      ${rec.prep.length ? acc(L2("투고 · 준비 중인 논문", "Submitted & in preparation"), rec.prep.length, `<ul class="pf-list rich">${rec.prep.map((h) => `<li>${hl(h)}</li>`).join("")}</ul>`) : ""}
+      ${rec.before.length ? acc(L2("NEEL 이전 논문", "Before NEEL"), rec.before.length, `<ul class="pf-list rich">${rec.before.map((h) => `<li>${hl(h)}</li>`).join("")}</ul>`) : ""}
+      ${m.details && m.details.length ? acc(L2("구글 사이트 원본 기록", "Original record (Google Site)"), "", memberDetails(m)) : ""}
+    </div>
+    <div class="pf-actions"><button class="btn btn-ghost" id="pf-ai">✨ ${L2("AI에게 이 사람에 대해 묻기", "Ask AI about this person")}</button></div>`;
+  }
+  let profileSlug = null;
+  function openProfile(slug) {
+    const p = people().bySlug.get(slug); if (!p) return;
+    const panel = $("#profile-panel"), sheet = $("#profile-sheet"); if (!panel || !sheet) return;
+    profileSlug = slug;
+    sheet.innerHTML = profileHTML(p); sheet.scrollTop = 0;
+    panel.classList.add("show"); document.body.style.overflow = "hidden";
+    $("#pf-close").onclick = closeProfile;
+    const mb = $("#pf-morebtn"); if (mb) mb.onclick = () => { $("#pf-more").classList.remove("hidden"); mb.remove(); };
+    $("#pf-ai").onclick = () => { closeProfile(); askAbout("member:" + slug); };
+  }
+  function closeProfile() { const panel = $("#profile-panel"); if (!panel || !panel.classList.contains("show")) return; panel.classList.remove("show"); document.body.style.overflow = ""; profileSlug = null; }
+  function bindProfile() {
+    document.addEventListener("click", (e) => {
+      const el = e.target.closest("[data-member]"); if (!el || e.target.closest("a")) return;
+      e.preventDefault(); openProfile(el.getAttribute("data-member"));
+    });
+    const bg = $("#profile-bg"); if (bg) bg.onclick = closeProfile;
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && profileSlug) closeProfile(); });
   }
   function memberDetails(m) {
     if (!m.details || !m.details.length) return `<div class="muted small">—</div>`;
@@ -566,6 +734,7 @@ ${en.length && LANG === "en" ? `<section class="sec"><div class="container">
     return `<div class="pub-row" id="pub-${p.num}"${aiAttr("pub:" + p.num, "#" + p.num + " " + (p.title || p.journal))}><div class="pub-num">#${String(p.num).padStart(3, "0")}</div><div class="pub-body">
       <div class="pub-title">${link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(p.title || txt(p.journal_html))}</a>` : esc(p.title || txt(p.journal_html))}${p.cover ? ` <span class="tag gold">★ Cover</span>` : ""}${p.accepted ? ` <span class="tag green">Accepted</span>` : ""}</div>
       <div class="pub-authors rich">${hl(p.authors)}</div>
+      ${compact ? "" : pubPeopleRow(p)}
       <div class="pub-meta"><span class="journal">${esc(p.journal)}</span><span class="year">${p.year || ""}</span>${p.impact ? `<span>${esc(p.impact)}</span>` : ""}${p.publisher ? `<span>${esc(p.publisher)}</span>` : ""}${p.doi ? `<a href="${esc(p.doi)}" target="_blank" rel="noopener">DOI</a>` : ""}${p.pdf ? `<a href="${esc(p.pdf)}" target="_blank" rel="noopener">PDF</a>` : ""}${(p.links || []).filter((u) => !/doi\.org|drive\.google/.test(u) && !(p.news || []).some((n) => n.url === u)).slice(0, 1).map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">Link</a>`).join("")}</div>
       ${!compact && ((p.ack && p.ack.length) || (p.notes && p.notes.length)) ? `<div class="pub-extra">${p.notes && p.notes.length ? `<div class="rich">${p.notes.join("<br>")}</div>` : ""}${p.ack && p.ack.length ? `<div><span class="lbl">Acknowledgment</span><span class="rich">${p.ack.join(" ")}</span></div>` : ""}</div>` : ""}
       ${!compact && p.news && p.news.length ? `<div class="pub-news">${p.news.map((n) => `<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a>`).join("")}</div>` : ""}
@@ -862,6 +1031,7 @@ ${en.length && LANG === "en" ? `<section class="sec"><div class="container">
     document.title = (slug ? `${t(slug) === slug ? pageTitle(slug) : t(slug)} · ` : "") + "NEEL Lab";
     if (MOUNT[slug]) MOUNT[slug]();
     afterRender();
+    if (profileSlug) openProfile(profileSlug); // language switch: redraw an open profile in the new language
     setActiveNav(slug);
     setActiveTab(slug);
     if (keepY != null) {
@@ -876,7 +1046,7 @@ ${en.length && LANG === "en" ? `<section class="sec"><div class="container">
   function scrollToHashAnchor() {
     const { anchor } = parseHash(); if (!anchor) return;
     const el = document.getElementById(anchor); if (!el) return;
-    setTimeout(() => { el.classList.add("in"); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" }); if (el.hasAttribute("data-toggle")) togglePanel(el.getAttribute("data-toggle"), true); }, 60);
+    setTimeout(() => { el.classList.add("in"); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" }); if (el.hasAttribute("data-toggle")) togglePanel(el.getAttribute("data-toggle"), true); if (el.hasAttribute("data-member")) openProfile(el.getAttribute("data-member")); }, 60);
   }
   function afterRender() {
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.05, rootMargin: "0px 0px -4% 0px" });
@@ -1023,8 +1193,10 @@ ${en.length && LANG === "en" ? `<section class="sec"><div class="container">
       case "research": { const tp = RES.ko_topics[+id]; if (!tp) return null; const tx = topicText(tp);
         return { kind, label: LANG === "en" ? tp.title_en : tp.title_ko, href: `#/research#topic-${+id + 1}`, q: L2(`"${tp.title_ko}" 연구에 대해 설명해줘`, `Explain the research topic "${tp.title_en}"`), ctx: `[Research topic ${+id + 1}] ${tp.title_ko} / ${tp.title_en}: ${tp.desc.map(txt).join(" ")} Directions: ${tp.bullets.map(txt).join("; ")}. Papers: ${tp.papers.map((p) => p.journal + (p.cover ? " (cover)" : "") + (p.url ? " " + p.url : "")).join("; ")}`,
           md: `### ${LANG === "en" ? tp.title_en || tp.title_ko : `${tp.title_ko}\n*${tp.title_en}*`}\n\n${tx.desc.map(txt).join("\n\n")}\n\n${tx.bullets.length ? tx.bullets.map((b) => `- ${txt(b)}`).join("\n") + "\n" : ""}${tp.papers.length ? `\n${L2("대표 논문", "Representative papers")}:\n${tp.papers.slice(0, 8).map((p) => `- ${p.url ? link(p.url, p.journal) : p.journal}${p.cover ? " ★cover" : ""}`).join("\n")}\n` : ""}` }; }
-      case "member": { let m = null, grp = ""; MEMBERS.forEach((g) => g.members.forEach((x) => { if (slugify(x.name_en) === id) { m = x; grp = g.title; } })); if (!m) return null; const pubs = byPerson(m.name_en.split(" ").slice(-1)[0] === "Sim" ? m.name_en : m.name_en);
-        return { kind, label: m.name_en, href: `#/members#mem-${id}`, q: L2(`${m.name_en}(${m.name_ko || ""}) 연구원에 대해 알려줘`, `Tell me about ${m.name_en}`), ctx: `[Member · ${groupTitle(grp)}] ${dispName(m.name)}: ${m.roles.map(txt).join("; ")}. Papers with this author: ${pubs.map((p) => "#" + p.num + " " + p.title).join(" / ")}`,
+      case "member": { let m = null, grp = ""; MEMBERS.forEach((g) => g.members.forEach((x) => { if (slugify(x.name_en) === id) { m = x; grp = g.title; } })); if (!m) return null;
+        const person = people().bySlug.get(id); const pubs = person ? person.pubs.map((x) => x.pb).slice(0, 5) : byPerson(m.name_en);
+        const pctx = person ? ` NEEL papers: ${person.pubs.length} (${person.pubs.filter((x) => x.first).length} as first/co-first author). Main themes (from titles): ${personThemes(person).slice(0, 4).map((x) => x.label + " ×" + x.n).join(", ") || "—"}. Patents: ${person.pats.length}, presentations: ${person.pres.length}, awards: ${person.awards.map((a) => a.year + " " + a.headline).join(" / ") || "—"}. Papers: ${person.pubs.slice(0, 25).map((x) => "#" + x.pb.num + " " + x.pb.title + " (" + x.pb.journal + " " + x.pb.year + (x.first ? ", first author" : "") + ")").join(" / ")}` : "";
+        return { kind, label: m.name_en, href: `#/members#mem-${id}`, q: L2(`${m.name_en}(${m.name_ko || ""}) 연구원에 대해 알려줘`, `Tell me about ${m.name_en}`), ctx: `[Member · ${groupTitle(grp)}] ${dispName(m.name)}: ${m.roles.map(txt).join("; ")}.${pctx || ` Papers with this author: ${pubs.map((p) => "#" + p.num + " " + p.title).join(" / ")}`}`,
           md: `### ${dispName(m.name)}\n${groupTitle(grp)}\n\n${m.roles.map((r) => `- ${txt(r)}`).join("\n")}${m.stats && m.stats.main != null ? `\n- ${L2("주저자", "Main author")} ${m.stats.main} · ${L2("공저자", "Co-author")} ${m.stats.co || 0}` : ""}${pubs.length ? `\n\n${L2("최근 논문", "Recent papers")}:\n${pubs.map(pubLine).join("\n")}` : ""}\n\n${link(`#/members#mem-${id}`, L2("상세 보기 →", "Details →"))}` }; }
       case "award": { const a = AWARDS.find((x) => String(x.num) === id); if (!a) return null;
         return { kind, label: a.headline, href: `#/award#award-${a.num}`, q: L2(`수상 "${a.headline}"에 대해 알려줘`, `Tell me about the award "${a.headline}"`), ctx: `[Award #${a.num}, ${a.year}] ${a.headline} ${a.details.map(txt).join(" ")}`, md: `### ${a.headline}\n${a.year} · #${a.num}\n\n${a.details.map(txt).join("\n\n")}` }; }
@@ -1412,9 +1584,9 @@ ${en.length && LANG === "en" ? `<section class="sec"><div class="container">
     document.addEventListener("mousemove", (e) => { const el = e.target.closest && e.target.closest(".lg, .card, .rc, .stat-card"); if (!el) return; const r = el.getBoundingClientRect(); el.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%"); el.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%"); });
     let pTick = false;
     window.addEventListener("scroll", () => { if (pTick) return; pTick = true; requestAnimationFrame(() => { const y = window.scrollY; $$(".page-hero .blob, .home-hero .blob").forEach((b, i) => { b.style.transform = `translate3d(0, ${y * (((i % 3) + 1) * 0.05)}px, 0)`; }); pTick = false; }); }, { passive: true });
-    bindLightbox(); bindChat();
+    bindLightbox(); bindChat(); bindProfile();
     buildNav(); buildFooter(); buildChat(); buildTabbar();
-    window.addEventListener("hashchange", () => { const { slug } = parseHash(); if (slug !== currentSlug) render(); else { scrollToHashAnchor(); setActiveNav(slug); } });
+    window.addEventListener("hashchange", () => { closeProfile(); const { slug } = parseHash(); if (slug !== currentSlug) render(); else { scrollToHashAnchor(); setActiveNav(slug); } });
     render();
     if (!LANG) { $("#lang-modal").classList.remove("hide"); $$(".lang-choice").forEach((b) => b.onclick = () => setLang(b.dataset.lang)); }
     else $("#lang-modal").style.display = "none";
