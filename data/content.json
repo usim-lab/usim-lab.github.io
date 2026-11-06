@@ -19,7 +19,8 @@
    "neelstagram",
    "publicationin-prep"
   ],
-  "generator": "sync_site.py"
+  "generator": "sync_site.py",
+  "e2e_test": "sync verification 2026-11-06"
  },
  "nav": [
   {
