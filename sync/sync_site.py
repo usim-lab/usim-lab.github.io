@@ -34,7 +34,6 @@ import time
 import urllib.parse
 import urllib.request
 from collections import OrderedDict
-from datetime import datetime
 
 # --------------------------------------------------------------------------
 # dependencies
@@ -377,6 +376,9 @@ class ImageRegistry:
             self.map = json.load(open(self.map_path, encoding="utf-8"))
         except Exception:
             self.map = {}
+        # 구글이 동기화 때마다 사진 주소를 바꿔 주므로 저장하지 않습니다 (저장하면 내용이 그대로여도 매번 커밋됩니다).
+        for rec in self.map.values():
+            rec.pop("url", None)
         self.pending = OrderedDict()   # key -> url
         self.seen_keys = set()
 
@@ -384,7 +386,6 @@ class ImageRegistry:
         self.seen_keys.add(key)
         rec = self.map.get(key)
         if rec and not self.full and os.path.exists(os.path.join(self.out_dir, rec["file"])):
-            rec["url"] = url
             return rec["file"]
         self.pending[key] = url
         return None  # resolved after download
@@ -415,7 +416,7 @@ class ImageRegistry:
                 fpath, nw, nh = optimize_image(fpath)
                 w, h = nw or w, nh or h
         fname = os.path.relpath(fpath, self.out_dir).replace(os.sep, "/")
-        return key, {"file": fname, "w": w, "h": h, "url": url, "bytes": os.path.getsize(fpath), "opt": True}
+        return key, {"file": fname, "w": w, "h": h, "bytes": os.path.getsize(fpath), "opt": True}
 
     def flush(self, workers=8):
         if not self.pending:
@@ -1568,7 +1569,7 @@ def main():
         return page_lines(pages[slug], reg) if slug in pages else []
 
     data = {
-        "meta": {"synced_at": datetime.now().isoformat(timespec="seconds"), "source": site,
+        "meta": {"source": site,
                  "pages": list(pages.keys()), "generator": "sync_site.py"},
         "nav": nav,
         "pages": pages,

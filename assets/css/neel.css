@@ -809,8 +809,6 @@ section.sec.alt { background: var(--bg-2); }
 .info-grid .lg { padding: 18px; border-radius: 18px; }
 .info-grid .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; color: var(--ink-2); font-weight: 700; text-transform: uppercase; }
 .info-grid .val { margin-top: 6px; font-size: 13.5px; line-height: 1.55; }
-.sync-note { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; color: var(--ink-3); font-family: var(--mono); }
-.sync-note::before { content: ""; width: 6px; height: 6px; border-radius: 9999px; background: var(--green); }
 
 /* ================================================================
    LANGUAGE MODAL (first visit)

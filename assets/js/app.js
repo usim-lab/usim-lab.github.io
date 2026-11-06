@@ -51,7 +51,7 @@
       main_author: "주저자", co_author: "공저자", education: "학력", experience: "경력", activities: "학술 활동", selected_pubs: "대표 논문", bio: "소개",
       goal: "목표", status: "현황", papers_out: "논문", patents_out: "특허", past_projects: "이전 과제", ongoing: "진행 과제", updated: "업데이트",
       certificates: "특허증 · 증서", topics_ko: "연구 주제", topics_en: "Research Areas (English)", rep_papers: "대표 논문", posts: "게시물", photos: "사진", since: "since",
-      recent: "최근", synced: "구글 사이트에서 동기화됨", source_note: "원본: Google Sites", generic_note: "이 페이지는 구글 사이트의 내용을 그대로 비춥니다.",
+      recent: "최근", source_note: "원본: Google Sites", generic_note: "이 페이지는 구글 사이트의 내용을 그대로 비춥니다.",
       in_prep: "준비 중 · 투고 중인 논문 목록 →", assistant_hello: "안녕하세요! NEEL Lab 안내 도우미입니다. 논문·구성원·수상·특허·연구주제를 검색하거나, ✨AI 모드로 자유롭게 질문해 보세요.",
       assistant_none: "관련 항목을 찾지 못했어요. 다른 키워드로 검색해 보세요. (예: 암모니아, 수전해, 2025, Cover)",
       assistant_found: "관련 항목을 찾았어요:", edit_title: "사이트 설정", edit_desc: "구글 사이트에 없는 디자인용 문구와 AI 어시스턴트 설정만 여기서 바꿉니다. 연구실 데이터(논문·구성원 등)는 구글 사이트에서 편집한 뒤 동기화하세요.",
@@ -80,7 +80,7 @@
       main_author: "Main author", co_author: "Co-author", education: "Education", experience: "Experience", activities: "Academic Activities", selected_pubs: "Selected Publications", bio: "Biography",
       goal: "Goal", status: "Status", papers_out: "Papers", patents_out: "Patents", past_projects: "Past projects", ongoing: "Ongoing projects", updated: "updated",
       certificates: "Certificates", topics_ko: "Research Topics", topics_en: "Research Areas", rep_papers: "Representative papers", posts: "posts", photos: "photos", since: "since",
-      recent: "Recent", synced: "Synced from Google Sites", source_note: "Source: Google Sites", generic_note: "This page mirrors the Google Site content as-is.",
+      recent: "Recent", source_note: "Source: Google Sites", generic_note: "This page mirrors the Google Site content as-is.",
       in_prep: "In-prep & submitted papers →", assistant_hello: "Hi! I'm the NEEL Lab guide. Search papers, members, awards, patents and topics — or switch to ✨AI mode and ask anything.",
       assistant_none: "Nothing found. Try another keyword (e.g. ammonia, electrolysis, 2025, cover).",
       assistant_found: "Here is what I found:", edit_title: "Site settings", edit_desc: "Only design texts that do not exist on the Google Site and the AI assistant settings are edited here. Lab data (papers, members…) is edited on Google Sites and then synced.",
@@ -1115,8 +1115,7 @@ ${en.length && LANG === "en" ? `<section class="sec"><div class="container">
       <div class="container"><div class="footer-grid">
         <div class="footer-col brandcol"><a href="#/" class="brand" style="margin-bottom:14px"><img class="brand-logo" src="${LOGO}" alt="N"><span class="brand-text" style="font-size:16px">${esc(B.full || "NEEL Laboratory")}</span></a>
           <p class="small muted" style="margin:0 0 12px;max-width:320px;line-height:1.65">${L2("지속 가능한 미래를 위한 나노 에너지 과학의 최전선.", "At the frontier of nano-energy science for a sustainable future.")}</p>
-          <p class="small" style="margin:0">📧 <a href="mailto:${esc(C.email)}" style="color:var(--blue)">${esc(C.email)}</a></p>
-          <p class="sync-note" style="margin-top:14px" title="${esc((D.meta || {}).source || "")}">${t("synced")} · ${esc(((D.meta || {}).synced_at || "").replace("T", " ").slice(0, 16))}</p></div>
+          <p class="small" style="margin:0">📧 <a href="mailto:${esc(C.email)}" style="color:var(--blue)">${esc(C.email)}</a></p></div>
         ${col(t("lab_lines"), ["professor", "research", "members", "course", "program"])}
         ${col(t("outputs"), ["publication", "publication/cover", "patent", "presentation", "project", "award"])}
         ${col(t("more_links"), ["news", "news/research-news", "neelstagram", "contact"])}
