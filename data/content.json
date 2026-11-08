@@ -4911,7 +4911,7 @@
         },
         {
          "t": "p",
-         "html": "<b><u>[</u>Patents]</b> Registration: 4, Application: 7<br><b>[Awards] </b>Conference: 2, Academic Scholarship : 6, CK-1 Scholarship: 2"
+         "html": "<b><u>[</u>Patents]</b> Registration: 5, Application: 6<br><b>[Awards] </b>Conference: 2, Academic Scholarship : 6, CK-1 Scholarship: 2"
         }
        ]
       }
@@ -10396,7 +10396,7 @@
         },
         {
          "t": "p",
-         "html": "<b><i>Electronic Materials Letters, </i></b><i>2026, Accepted <br>(Impact Factor 3.1, JCR 57.6% in MATERIALS SCIENCE, MULTIDISCIPLINARY 272/472)</i>"
+         "html": "<b><i>Electronic Materials Letters, </i></b><i>2026, Accepted, </i><a href=\"https://doi.org/10.1007/s13391-026-00672-1\" target=\"_blank\" rel=\"noopener\"><i><u>https://doi.org/10.1007/s13391-026-00672-1</u></i></a>  <i><br>(Impact Factor 3.1, JCR 57.6% in MATERIALS SCIENCE, MULTIDISCIPLINARY 272/472)</i>"
         },
         {
          "t": "p",
@@ -10404,7 +10404,7 @@
         },
         {
          "t": "p",
-         "html": "<b>※ Acknowledgment</b>"
+         "html": "<b>※ Acknowledgment<br></b>NRF-2022R1A2C1012419 (<b>중견 켄텍</b>),  20213030040590 (<b>전남대 수전해</b>),  RS-2025-02304435 (<b>영커넥터</b>),  GTL25021-210 (<b>외부</b>)"
         }
        ]
       }
@@ -39708,7 +39708,7 @@
       },
       {
        "k": "p",
-       "html": "<b><u>[</u>Patents]</b> Registration: 4, Application: 7"
+       "html": "<b><u>[</u>Patents]</b> Registration: 5, Application: 6"
       },
       {
        "k": "p",
@@ -44167,18 +44167,20 @@
     "authors": "Seonghyeon Park†, Jinuk Choi†, Myeong Gon Kim†, Hyojung Lim, Chanmin Jo, Uk Sim*, and Kyoungsuk Jin*",
     "title": "Spinel Cobalt Oxide-based Electrocatalysts for Nitrate-to-Ammonia Conversion: Catalyst Design and Dynamic Surface Reconstruction",
     "title_html": "\"Spinel Cobalt Oxide-based Electrocatalysts for Nitrate-to-Ammonia Conversion: Catalyst Design and Dynamic Surface Reconstruction\"",
-    "journal_html": "<b><i>Electronic Materials Letters, </i></b><i>2026, Accepted</i>",
-    "journal_text": "Electronic Materials Letters, 2026, Accepted",
+    "journal_html": "<b><i>Electronic Materials Letters, </i></b><i>2026, Accepted, </i><a href=\"https://doi.org/10.1007/s13391-026-00672-1\" target=\"_blank\" rel=\"noopener\"><i><u>https://doi.org/10.1007/s13391-026-00672-1</u></i></a>",
+    "journal_text": "Electronic Materials Letters, 2026, Accepted, https://doi.org/10.1007/s13391-026-00672-1",
     "journal": "Electronic Materials Letters",
     "year": 2026,
-    "doi": "",
+    "doi": "https://doi.org/10.1007/s13391-026-00672-1",
     "pdf": "",
     "links": [],
     "impact": "Impact Factor 3.1, JCR 57.6% in MATERIALS SCIENCE, MULTIDISCIPLINARY 272/472",
     "accepted": true,
     "in_press": false,
     "publisher": "Springer",
-    "ack": [],
+    "ack": [
+     "NRF-2022R1A2C1012419 (<b>중견 켄텍</b>),  20213030040590 (<b>전남대 수전해</b>),  RS-2025-02304435 (<b>영커넥터</b>),  GTL25021-210 (<b>외부</b>)"
+    ],
     "notes": [],
     "news": [],
     "cover": false,
