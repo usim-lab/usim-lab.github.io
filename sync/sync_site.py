@@ -1035,6 +1035,79 @@ def parse_cover(lines):
     return [l["file"] for l in lines if l["k"] == "img" and not l.get("bg") and l["file"]]
 
 
+# 표지 갤러리에는 있지만 논문 목록의 사진이 표지와 다른(그래서 사진 대조가 안 되는) 논문.
+# 논문 DOI·링크에 이 문자열이 있으면 표지 논문으로 표시.
+COVER_LINK_KEYS = (
+    "admt.202200882",   # #073 Advanced Materials Technologies 표지 (논문 목록 사진은 그림 초록)
+    "cnma.202300092",   # #086 ChemNanoMat (갤러리에는 첫 페이지)
+)
+# 16x16 dHash 해밍거리(256비트). 2026-11-12 측정: 같은 표지 0–39, 다른 사진 70 이상.
+COVER_DHASH_MAX = 50
+COVER_AHASH_MAX = 50
+
+
+def _img_hashes(path, n=16):
+    im = _PILImage.open(path)
+    if im.mode in ("RGBA", "LA", "P"):
+        im = im.convert("RGBA")
+        bg = _PILImage.new("RGBA", im.size, (255, 255, 255, 255))
+        im = _PILImage.alpha_composite(bg, im)
+    g = im.convert("L")
+    d = list(g.resize((n + 1, n), _PILImage.LANCZOS).getdata())
+    a = list(g.resize((n, n), _PILImage.LANCZOS).getdata())
+    dh = 0
+    for r in range(n):
+        for c in range(n):
+            dh = (dh << 1) | (d[r * (n + 1) + c] > d[r * (n + 1) + c + 1])
+    m = sum(a) / len(a)
+    ah = 0
+    for v in a:
+        ah = (ah << 1) | (v > m)
+    return dh, ah
+
+
+def mark_gallery_covers(pubs, covers, out_dir):
+    """표지 갤러리(publication/cover) 사진과 같은 사진이 붙은 논문을 표지 논문으로 표시.
+    구글 사이트 논문 목록에 'Cover' 글자가 없어도 '표지 논문만' 필터에 나오게 함."""
+    items = (pubs or {}).get("items") or []
+    newly = []
+
+    def mark(it, why):
+        if not it["cover"]:
+            it["cover"] = True
+            newly.append("#%d(%s)" % (it["num"], why))
+
+    for it in items:
+        hay = " ".join([it.get("doi", "")] + it.get("links", [])).lower()
+        if any(k in hay for k in COVER_LINK_KEYS):
+            mark(it, "link")
+    if HAS_PIL and covers:
+        ham = lambda x, y: bin(x ^ y).count("1")
+        cache = {}
+
+        def h(f):
+            if f not in cache:
+                p = os.path.join(out_dir, f)
+                try:
+                    cache[f] = _img_hashes(p) if os.path.exists(p) else None
+                except Exception:
+                    cache[f] = None
+            return cache[f]
+
+        ch = [x for x in (h(c) for c in covers) if x]
+        for it in items:
+            if it["cover"]:
+                continue
+            for f in it.get("images", []):
+                ih = h(f)
+                if ih and any(ham(ih[0], c[0]) <= COVER_DHASH_MAX and ham(ih[1], c[1]) <= COVER_AHASH_MAX for c in ch):
+                    mark(it, "image")
+                    break
+    if newly:
+        log("   cover from gallery/link: " + ", ".join(newly))
+    return newly
+
+
 def parse_patents(lines):
     reg, app, imgs = [], [], []
     mode = "reg"
@@ -1610,6 +1683,10 @@ def main():
             import traceback
             log("   ! %s parse failed: %s" % (key, e))
             traceback.print_exc()
+    try:
+        mark_gallery_covers(data.get("publications"), data.get("covers"), out)
+    except Exception as e:
+        log("   ! cover marking failed:", e)
 
     # stats
     st = {}

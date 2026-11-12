@@ -46316,7 +46316,7 @@
       "url": "https://www.gpkorea.com/news/articleView.html?idxno=111497"
      }
     ],
-    "cover": false,
+    "cover": true,
     "extra_html": [
      "<b>American Chemical Society (ACS)</b>"
     ]
@@ -46382,7 +46382,7 @@
       "url": "https://www.thebigdata.co.kr/view.php?ud=2024031514455049946cf2d78c68_23"
      }
     ],
-    "cover": false,
+    "cover": true,
     "extra_html": [
      "<b>Wiley</b>"
     ]
@@ -46413,7 +46413,7 @@
     "ack": [],
     "notes": [],
     "news": [],
-    "cover": false,
+    "cover": true,
     "extra_html": [
      "<b>Royal Society of Chemistry (RSC)</b>"
     ]
@@ -46572,7 +46572,7 @@
       "url": "https://gs.kentech.ac.kr/research/highlight_view/279?bd=highlight&amp;page=1&amp;searchOption=&amp;searchItem="
      }
     ],
-    "cover": false,
+    "cover": true,
     "extra_html": [
      "<b>Wiley</b>"
     ]
@@ -47030,7 +47030,7 @@
      "<b>※ KR Patent Application No. 10-2022-0178786 (2022.12.19)_#9</b>"
     ],
     "news": [],
-    "cover": false,
+    "cover": true,
     "extra_html": []
    },
    {
@@ -48619,7 +48619,7 @@
     "ack": [],
     "notes": [],
     "news": [],
-    "cover": false,
+    "cover": true,
     "extra_html": [
      "<i>Wiley</i>"
     ]
